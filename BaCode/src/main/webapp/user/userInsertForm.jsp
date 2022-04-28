@@ -19,7 +19,7 @@
 		    <div class="col">
 		         <h1>회원가입</h1>
 			     <hr/>
-			     <form action="http://localhost:8181/BaCode/userInsert" method="post">
+			     <form action="http://localhost:52525/BaCode/userInsert" method="post">
 			     아이디 : <input type="text" name="uId" placeholder="아이디"><br/>
 			     비밀번호 : <input type="password" name="uPw" placeholder="비밀번호"><br/>
 			     이름 : <input type="text" name="uName" placeholder="이름"><br/>
