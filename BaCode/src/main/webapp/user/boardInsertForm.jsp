@@ -31,7 +31,7 @@
 			     <hr/>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
 					   <div class="Categori">
-				       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="Categori">
+				       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="categori">
 						  <option selected>Categori</option>
 						  <option value="노트북">노트북</option>
 						  <option value="마우스">마우스</option>
