@@ -2,6 +2,9 @@ package kr.co.bacode.domain;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -52,4 +55,45 @@ public class BoardDAO {
 		}	
 	} // insertBoard 끝나는 지점
 	
-}
+	// 게시판 리스트 보기
+	public List<BoardVO> getBoardList() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<BoardVO> boardList = new ArrayList<>();
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM tradeTbl ORDER BY postnum DESC";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardVO boardUser = new BoardVO();
+				boardUser.setPostNum(rs.getInt(1));
+				boardUser.setuId(rs.getString(2));
+				boardUser.setTitle(rs.getString(3));
+				boardUser.setContent(rs.getString(4));
+				boardUser.setBdate(rs.getDate(5));
+				boardUser.setMdate(rs.getDate(6));
+				boardUser.setCatego(rs.getString(7));
+				boardUser.setHeart_num(rs.getInt(8));
+				boardUser.setHit(rs.getInt(9));
+				boardList.add(boardUser);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return boardList;
+	}
+		
+	}
+	
+
