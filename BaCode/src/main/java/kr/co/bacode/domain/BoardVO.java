@@ -3,6 +3,7 @@ package kr.co.bacode.domain;
 import java.sql.Date;
 
 public class BoardVO {
+	private int postNum;
 	private String uId;
     private String title;
     private String content;
@@ -12,6 +13,12 @@ public class BoardVO {
     private int heart_num;
     private int hit;
     
+	public int getPostNum() {
+		return postNum;
+	}
+	public void setPostNum(int postNum) {
+		this.postNum = postNum;
+	}
 	public String getuId() {
 		return uId;
 	}
@@ -62,8 +69,10 @@ public class BoardVO {
 	}
 	@Override
 	public String toString() {
-		return "BoardVO [uId=" + uId + ", title=" + title + ", content=" + content + ", bdate=" + bdate + ", mdate="
-				+ mdate + ", catego=" + catego + ", heart_num=" + heart_num + ", hit=" + hit + "]";
+		return "BoardVO [postNum=" + postNum + ", uId=" + uId + ", title=" + title + ", content=" + content + ", bdate="
+				+ bdate + ", mdate=" + mdate + ", catego=" + catego + ", heart_num=" + heart_num + ", hit=" + hit + "]";
 	}
+    
+	
     
 }
