@@ -21,6 +21,10 @@
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
 	<input type="submit" value="삭제하기" />
 	</form>
+	<form action="http://localhost:52525/BaCode/mainSearch.jsp" method="post">
+	<input type="hidden" name="uId" value="${user.uId }"><br/>
+	<input type="submit" value="홈으로" />
+	</form>
 	<form action="http://localhost:52525/BaCode/userUpdateForm" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
 	<input type="submit" value="수정하기">
