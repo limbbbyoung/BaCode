@@ -29,7 +29,6 @@ public class UserInsertForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dp = request.getRequestDispatcher("/user/userInsertForm.jsp");
-		
 		dp.forward(request, response);
 	}
 

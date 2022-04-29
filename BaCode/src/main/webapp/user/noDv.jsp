@@ -8,6 +8,6 @@
 </head>
 <body>
 	정답이 아닙니다
-	<a href="http://localhost:8181/BaCode/user/userLoginForm.jsp">로그인창으로 돌아가기</a>
+	<a href="http://localhost:52525/BaCode/user/userLoginForm.jsp">로그인창으로 돌아가기</a>
 </body>
 </html>

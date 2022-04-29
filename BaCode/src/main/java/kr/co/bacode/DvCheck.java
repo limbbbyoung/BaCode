@@ -26,7 +26,7 @@ public class DvCheck extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("http://localhost:8181/BaCode/user/dvCheck.jsp");
+		response.sendRedirect("http://localhost:52525/BaCode/user/dvCheck.jsp");
 	}
 
 	/**

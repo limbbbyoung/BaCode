@@ -36,11 +36,7 @@ public class UserUpdate extends HttpServlet {
 		String pNum = request.getParameter("pNum");
 		String nckName = request.getParameter("nckName");
 		String email = request.getParameter("email");
-
-		
-		System.out.println("uid : " + uId + " upw :" + uPw + " �씠由� " + uName + " 二쇱냼 : " + addr + " �쟾�솕踰덊샇 : " + pNum + "�땳�꽕�엫 : " + nckName + " �씠硫붿씪 : " + email);
 		userDAO dao = userDAO.getInstance();
-		
 		dao.userUpdate(uId, uPw, uName, email, pNum, addr, nckName);
 		response.sendRedirect("http://localhost:52525/BaCode/getUserDetail?uId=" + uId );
 	}

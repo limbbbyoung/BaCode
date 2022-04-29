@@ -39,7 +39,7 @@ public class AnswerRight extends HttpServlet {
 		if (answer.equals("helloWorld")) {
 			response.sendRedirect("/BaCode/userInsertForm");
 		} else {
-			response.sendRedirect("http://localhost:8181/BaCode/user/noDv.jsp");
+			response.sendRedirect("http://localhost:52525/BaCode/user/noDv.jsp");
 		}
 	}
 

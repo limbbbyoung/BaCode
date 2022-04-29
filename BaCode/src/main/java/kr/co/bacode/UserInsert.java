@@ -46,7 +46,7 @@ public class UserInsert extends HttpServlet {
 		// DAO에서 회원가입 메서드 실행
 		dao.joinUser(uId, uPw, uName, email, pNum, addr, nckName);
 		// 회원가입 성공시 Welcome창으로 리다이렉트
-		response.sendRedirect("http://localhost:8181/BaCode/user/userWelcome.jsp");
+		response.sendRedirect("http://localhost:52525/BaCode/user/userWelcome.jsp");
 	}
 
 }

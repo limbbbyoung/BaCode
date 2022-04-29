@@ -37,7 +37,7 @@ public class SearchWhat extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String mouse = request.getParameter("search_name");
 		if (mouse.equals(mouse)) {
-			response.sendRedirect("http://localhost:8181/BaCode/user/mouse.jsp");
+			response.sendRedirect("http://localhost:52525/BaCode/user/mouse.jsp");
 		}
 	}
 

@@ -38,7 +38,7 @@
 						  <option value="키보드">키보드</option>
 					   </select>
 					   </div>
-			     <form action="http://localhost:8181/BaCode/boardInsert" method="post">
+			     <form action="http://localhost:52525/BaCode/boardInsert" method="post">
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
 			     작성자 : 로그인 후 받아온 정보로 닉네임 보여주기<br/>
 			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content"></textarea><br/><br/>
