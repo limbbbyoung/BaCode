@@ -1,6 +1,8 @@
 package kr.co.bacode;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +38,7 @@ public class BoardInsert extends HttpServlet {
 		// DAO 생성 및 싱글턴 패턴 
 		BoardDAO bdao = BoardDAO.getInstance();
         // Form에서 Parameter로 관련된 값 받아오기
-		String uId = (String)session.getAttribute("s_Id");
+		String uId = (String)session.getAttribute("s_id");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String categori = request.getParameter("categori");

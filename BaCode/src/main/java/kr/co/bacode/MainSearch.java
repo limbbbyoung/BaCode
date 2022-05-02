@@ -8,19 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class BoardInsertForm
+ * Servlet implementation class MainSearch
  */
-@WebServlet("/boardInsertForm")
-public class BoardInsertForm extends HttpServlet {
+@WebServlet("/mainSearch")
+public class MainSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardInsertForm() {
+    public MainSearch() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,10 +28,8 @@ public class BoardInsertForm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 HttpSession session = request.getSession();
-		 String uId = (String)session.getAttribute("s_id");
-		 request.setAttribute("uId", uId);
-		 RequestDispatcher dp = request.getRequestDispatcher("/user/boardInsertForm.jsp");
+		// TODO Auto-generated method stub
+		RequestDispatcher dp = request.getRequestDispatcher("/user/mainSearch.jsp");
 	     dp.forward(request, response);
 	}
 

@@ -35,8 +35,9 @@
 		<div class="col-md-6">
 			<form action="/BaCode/searchWhat" method="post">
 			<input type="text" name="search_name" style="width:750px;height:40px;" placeholder="검색어를 입력하세요" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"/>
-			<a href="/BaCode/getBoardList"><button class="button" style="border-radius:20px">등록된상품보러가기</button></a><a href="/BaCode/boardInsertForm"><button class="button" style="border-radius:20px">상품등록하기</button></a>
 			</form>
+		    <a href="/BaCode/getBoardList"><button class="button" style="border-radius:20px">등록된상품보러가기</button></a><br/>
+			<a href="/BaCode/boardInsertForm"><button class="button" style="border-radius:20px">상품등록하기</button></a>
 		</div>
 		<div class="col-md-3">.col-md-3</div>
 	</div>
