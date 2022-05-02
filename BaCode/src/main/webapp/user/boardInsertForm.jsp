@@ -30,6 +30,7 @@
 		      <h1>상품 등록</h1>
 			     <hr/>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
+			     <form action="http://localhost:52525/BaCode/boardInsert" method="post">
 					   <div class="Categori">
 				       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="categori">
 						  <option selected>Categori</option>
@@ -38,9 +39,8 @@
 						  <option value="키보드">키보드</option>
 					   </select>
 					   </div>
-			     <form action="http://localhost:52525/BaCode/boardInsert" method="post">
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
-			     작성자 : 로그인 후 받아온 정보로 닉네임 보여주기<br/>
+			     작성자 : ${uId }<br/>
 			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content"></textarea><br/><br/>
 			     <button type="submit" class="btn btn-success">상품 등록하기</button>
 			     </form>
