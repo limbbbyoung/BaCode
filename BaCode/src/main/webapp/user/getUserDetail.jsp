@@ -17,9 +17,9 @@
 	주소 : ${user.addr } <br/>
 	<hr/>
 	<!-- <a href="http://localhost:8181/BaCode/boardList"><buttion>목록으로</buttion></a> -->
-	<form action="http://localhost:52525/BaCode/userDeleteCheck.jsp" method="post">
+	<form action="http://localhost:52525/BaCode/userDeleteCheck" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
-	<input type="submit" value="삭제하기" />
+	<input type="submit" value="회원탈퇴" />
 	</form>
 	<form action="http://localhost:52525/BaCode/mainSearch.jsp" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
