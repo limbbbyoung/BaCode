@@ -32,6 +32,7 @@ public class GetBoardDetail extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String strBoardNum = request.getParameter("postnum");
+		
 		int boardNum = Integer.parseInt(strBoardNum);
 		System.out.println("조회된 번호 : " + boardNum);  
 		BoardDAO dao = BoardDAO.getInstance();
