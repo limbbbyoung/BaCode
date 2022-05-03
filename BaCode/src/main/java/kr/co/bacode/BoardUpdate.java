@@ -36,7 +36,7 @@ public class BoardUpdate extends HttpServlet {
 		int postNum = Integer.parseInt(strPostNum);
 		BoardDAO dao = BoardDAO.getInstance();
 		dao.boardUpdate(title, content, catego, postNum);
-		response.sendRedirect("http://localhost:52525/BaCode/boardDetail?postNum=" + postNum);
+		response.sendRedirect("http://localhost:52525/BaCode/getBoardDetail?postnum=" + postNum);
 	}
 
 }

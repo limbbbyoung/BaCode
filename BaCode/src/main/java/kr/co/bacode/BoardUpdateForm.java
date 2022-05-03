@@ -35,8 +35,8 @@ public class BoardUpdateForm extends HttpServlet {
 		String strPostNum = request.getParameter("postNum");
 		int postNum = Integer.parseInt(strPostNum);
 		BoardDAO dao = BoardDAO.getInstance();
-		BoardVO post  = dao.getBoardDetail(postNum);
-		request.setAttribute("post", post);
+		BoardVO board  = dao.getBoardDetail(postNum);
+		request.setAttribute("board", board);
 		RequestDispatcher dp = request.getRequestDispatcher("/board/boardUpdateForm.jsp");
 		dp.forward(request, response);
 	}
