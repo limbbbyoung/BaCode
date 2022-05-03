@@ -32,7 +32,7 @@ public class BoardInsertForm extends HttpServlet {
 		 HttpSession session = request.getSession();
 		 String uId = (String)session.getAttribute("s_id");
 		 request.setAttribute("uId", uId);
-		 RequestDispatcher dp = request.getRequestDispatcher("/user/boardInsertForm.jsp");
+		 RequestDispatcher dp = request.getRequestDispatcher("/board/boardInsertForm.jsp");
 	     dp.forward(request, response);
 	}
 
