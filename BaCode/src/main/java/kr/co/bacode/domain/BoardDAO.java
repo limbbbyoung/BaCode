@@ -134,14 +134,16 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-			 board.setPostNum(rs.getInt(1));
-			 board.setTitle(rs.getString(2));
-			 board.setContent(rs.getString(3));
-			 board.setuId	(rs.getString(4));
-			 board.setBdate(rs.getDate(5));
-			 board.setMdate(rs.getDate(6));
-			 board.setHit(rs.getInt(7));
-			} 
+				board.setPostNum(rs.getInt(1));
+				board.setuId(rs.getString(2));
+				board.setTitle(rs.getString(3));
+				board.setContent(rs.getString(4));
+				board.setBdate(rs.getDate(5));
+				board.setMdate(rs.getDate(6));
+				board.setCatego(rs.getString(7));
+				board.setHeart_num(rs.getInt(8));
+				board.setHit(rs.getInt(9));
+				}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -155,7 +157,27 @@ public class BoardDAO {
 		}
 		return board;
 	} // getBoardDetail 종료지점
-		
+	// delete 기능
+	public void boardDelete(int postNum){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = ds.getConnection();
+			String sql = "DELETE FROM tradeTbl WHERE postnum = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, postNum);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // delete 종료지점
 	}
 	
 
