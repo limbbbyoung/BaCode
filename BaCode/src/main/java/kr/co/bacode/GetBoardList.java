@@ -33,7 +33,7 @@ public class GetBoardList extends HttpServlet {
 		List<BoardVO> boardList = bdao.getBoardList();
 		System.out.println(boardList);
 		request.setAttribute("boardList", boardList);
-		RequestDispatcher dp = request.getRequestDispatcher("/user/getBoardList.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("/board/getBoardList.jsp");
 		dp.forward(request, response);
 	}
 }
