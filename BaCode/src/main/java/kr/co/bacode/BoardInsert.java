@@ -45,7 +45,7 @@ public class BoardInsert extends HttpServlet {
 		// BoardDAO에서 게시판 등록 메서드 실행
 		bdao.insertBoard(uId, title, content, categori);
 		// boardList로 돌아가거나 내 상품 목록으로 이동하기(일단 메인 검색창으로)
-		response.sendRedirect("http://localhost:52525/BaCode/user/mainSearch.jsp");
+		response.sendRedirect("http://localhost:52525/BaCode/getBoardList");
 	}
 
 }

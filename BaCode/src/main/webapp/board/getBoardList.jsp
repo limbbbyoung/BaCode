@@ -46,7 +46,7 @@
         </c:forEach>
        </tbody>
     </table>
-    <a href="http://localhost:52525/BaCode/userInsertForm" ><button>글 쓰기</button></a>
+    <a href="http://localhost:52525/BaCode/boardInsertForm" ><button>글 쓰기</button></a>
     <a href="http://localhost:52525/BaCode/mainSearch" ><button>홈으로</button></a>
 </body>
 </html>

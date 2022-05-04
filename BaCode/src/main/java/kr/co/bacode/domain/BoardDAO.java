@@ -178,6 +178,29 @@ public class BoardDAO {
 			}
 		}
 	} // delete 종료지점
+	
+	// 조회수 기능 관련 메서드
+	public void upHit(int boardNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = ds.getConnection();
+			String sql = "UPDATE tradeTbl SET hit = hit + 1 WHERE postnum=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, boardNum);
+			pstmt.executeUpdate();					
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+				con.close();
+				pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}	
+	} // 조회수 증가 로직 끝
+	
 	}
 	
 

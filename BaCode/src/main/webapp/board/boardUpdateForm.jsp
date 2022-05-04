@@ -14,7 +14,7 @@
 	본문 : <textarea cols="50" rows="15" name="content"/>${board.content } </textarea>
 	<hr/>
 	<input type="submit" value="수정하기" />
-	<input type="hidden" name="postNum" value="${board.postNum }"> <br/>
+	<input type="hidden" name="postnum" value="${board.postNum }"> <br/>
 	</form>
 </body>
 </html>
