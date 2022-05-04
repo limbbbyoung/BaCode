@@ -15,7 +15,7 @@
 	${board }
 	<p>
 	<form action="/BaCode/boardUpdateForm" method="post">
-	<input type="hidden" value="${board.postNum }" name="postNum">
+	<input type="hidden" value="${board.postNum }" name="postnum">
 	카테고리 : <input type="text" value="${board.catego }">
 	글 제목<input type="text" style="width:300px;height:25px;" value="${board.title }"><br/>
 	작성자 : <input type="text" value="${board.uId }"><br/> 
@@ -28,8 +28,7 @@
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="submit" value="삭제하기">
 	</form>
-	</p>
-	
-	
+	<a href="http://localhost:52525/BaCode/getBoardList">판매 목록 보러가기</a>
+	</p>	
 </body>
 </html>

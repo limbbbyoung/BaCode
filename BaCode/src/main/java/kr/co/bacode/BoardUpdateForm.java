@@ -32,7 +32,7 @@ public class BoardUpdateForm extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String strPostNum = request.getParameter("postNum");
+		String strPostNum = request.getParameter("postnum");
 		int postNum = Integer.parseInt(strPostNum);
 		BoardDAO dao = BoardDAO.getInstance();
 		BoardVO board  = dao.getBoardDetail(postNum);

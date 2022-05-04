@@ -35,25 +35,11 @@ public class GetBoardDetail extends HttpServlet {
 		int boardNum = Integer.parseInt(strBoardNum);
 		System.out.println("조회된 번호 : " + boardNum);  
 		BoardDAO dao = BoardDAO.getInstance();
+		// 조회수 증가
+		dao.upHit(boardNum);
 		BoardVO board = dao.getBoardDetail(boardNum);
 		request.setAttribute("board" , board);
 		RequestDispatcher dp = request.getRequestDispatcher("/board/boardDetail.jsp");
 		dp.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String strBoardNum = request.getParameter("postnum");
-		int boardNum = Integer.parseInt(strBoardNum);
-		System.out.println("조회된 번호 : " + boardNum);  
-		BoardDAO dao = BoardDAO.getInstance();
-		BoardVO board = dao.getBoardDetail(boardNum);
-		request.setAttribute("board" , board);
-		RequestDispatcher dp = request.getRequestDispatcher("/board/boardDetail.jsp");
-		dp.forward(request, response);
-	}
-
 }

@@ -32,7 +32,7 @@ public class BoardUpdate extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String catego = request.getParameter("catego");
-		String strPostNum = request.getParameter("postNum");
+		String strPostNum = request.getParameter("postnum");
 		int postNum = Integer.parseInt(strPostNum);
 		BoardDAO dao = BoardDAO.getInstance();
 		dao.boardUpdate(title, content, catego, postNum);
