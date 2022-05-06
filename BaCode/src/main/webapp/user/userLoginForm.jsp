@@ -5,29 +5,32 @@
 <html>
 <head>
 <style>
-	#header {
-		height : 200px;
-	}
 	.login {
-		text-align : center;
-	}
+		text-align : center;}
+	img{width : 400px; height : 400px;}
 </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BaCode Login</title>
 </head>	
 <body>
-<div id="header">헤더</div>
 <div id="container">
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6 login">
+		    <img src="../Images/Logo.jpg" class="img-responsive" alt="">
 			<form action="/BaCode/userLoginCheck" method="post">
-				<input type="text" name="userId" placeholder="아이디를 입력하세요"><br/><br/>
-				<input type="password" name="userPw" placeholder="비밀번호를 입력하세요"><br/><br/>
-				<input type="submit" value="로그인">
+			  <div class="col">
+			    <label for="BaCodeId" class="form-label">아이디</label>
+			    <input type="text" name="userId" class="form-control">
+			  </div>
+			  <div class="col">
+			    <label for="BaCodePw" class="form-label">비밀번호</label>
+			    <input type="password" name="userPw" class="form-control">
+			  </div><br/>
+			  <button type="submit" class="btn btn-success">로그인</button>
 			</form>
 			<br/>
-			<a href="/BaCode/dvCheck"><button>회원가입</button></a>
+			<a class="btn btn-success" href="/BaCode/dvCheck" role="button" aria-disabled="false">회원가입</a>
 		</div>
 		<div class="col-md-3"></div>
 	</div>
