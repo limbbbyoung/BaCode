@@ -1,6 +1,8 @@
 package kr.co.bacode;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,11 +39,17 @@ public class Pick extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+	
 		String pickUid = request.getParameter("pickId");
 		String strPickNum = request.getParameter("postNum");
 		int pickNum = Integer.parseInt(strPickNum);
 		PickDAO dao = PickDAO.getInstance();
-		dao.insertPick(pickNum, pickNum, pickUid);
+		
+		dao.insertPick(pickNum, pickUid);
+
+		response.sendRedirect("http://localhost:52525/BaCode/getBoardDetail?postnum=" + pickNum);
+	    
 		
 		
 	}
