@@ -87,21 +87,24 @@ public class PickDAO {
 		return pickList;
 	} // getPickList 종료지점
 	
-	public List<PickVO> getPickIdList(String uid, int postNum) {
+	public PickVO getPickList(int postNum, String uid) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<PickVO> pickIdList = new ArrayList<>();
+		PickVO pick = new PickVO();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM pickTbl WHERE uid=? and postnum=?" ;
+			String sql = "SELECT * FROM pickTbl WHERE postnum=? and uid=?" ;
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, postNum);
+			pstmt.setString(2, uid);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				PickVO pick = new PickVO();
-				pick.setuId(rs.getString(1));
-				pickIdList.add(pick);
+			if(rs.next()) {
+				pick.setPkNum(rs.getInt(1));
+				pick.setPkBdate(rs.getDate(2));
+				pick.setPostNum(rs.getInt(3));
+				pick.setuId(rs.getString(4));
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -114,6 +117,6 @@ public class PickDAO {
 				e.printStackTrace();
 			}
 		}
-		return pickIdList;
+		return pick;
 	}
 }

@@ -26,7 +26,7 @@
 </head>
 <body>
 <div id="header">헤더
-
+<a href="/BaCode/userLogout"><button>로그아웃</button></a>
 <a href="/BaCode/getUserDetail"><button>내정보</button></a>
 </div>
 <div id="container">
