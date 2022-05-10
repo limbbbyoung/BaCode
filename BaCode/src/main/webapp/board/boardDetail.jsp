@@ -13,7 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${board }
+	${board }</br>
+	세션아이디 : ${s_id }</br>
+	픽2 : ${pick }
 	<p>
 	<form action="/BaCode/boardUpdateForm" method="post">
 	<input type="hidden" value="${board.postNum }" name="postnum">
@@ -32,11 +34,9 @@
 	<a href="http://localhost:52525/BaCode/getBoardList"><button>판매 목록 보러가기</button></a>
 	</p>
 	<form action="/BaCode/pick" method="post">
-		<c:if test="${pickUid eq board.uId } ">
-			<input type="submit" value="찜하기">
-		</c:if>
+		<input type="submit" value="찜하기">
 		<input type="hidden" value="${board.postNum}" name="postNum">
-		<input type="hidden" value="${board.uId}" name="pickId">
+		<input type="hidden" value="${s_id }" name="pickId">
 	</form>
 </body>
 </html>
