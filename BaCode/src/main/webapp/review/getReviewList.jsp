@@ -32,7 +32,7 @@
          <c:forEach var="review" items="${reviewList }">
 	          <tr>
 				 <td>${review.rvNum}</td>
-	             <td>${review.title}</a></td>
+	             <td><a href="http://localhost:52525/BaCode/getReviewDetail?rvNum=${review.rvNum}">${review.title}</a></td>
 	             <td>${review.uId}</td>
 	             <td>${review.bdate}</td>
 	             <td>${review.udate}</td>
