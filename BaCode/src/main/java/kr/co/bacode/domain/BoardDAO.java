@@ -201,6 +201,35 @@ public class BoardDAO {
 		}	
 	} // 조회수 증가 로직 끝
 	
+	// 전체 게시글의 갯수를 가져오는 메서드
+	public int getBoardCount() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int boardCount = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT count(*) FROM tradeTbl";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();	
+
+			if(rs.next()) {
+				boardCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return boardCount;
 	}
+	
+}
 	
 
