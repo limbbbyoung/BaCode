@@ -56,15 +56,17 @@ public class BoardDAO {
 	} // insertBoard 끝나는 지점
 	
 	// 게시판 리스트 보기
-	public List<BoardVO> getBoardList() {
+	public List<BoardVO> getBoardList(int pageNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<BoardVO> boardList = new ArrayList<>();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM tradeTbl ORDER BY postnum DESC";
+			int limitNum = (pageNum -1)*10;
+			String sql = "SELECT * FROM tradeTbl ORDER BY postnum DESC limit ?, 10";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, limitNum);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

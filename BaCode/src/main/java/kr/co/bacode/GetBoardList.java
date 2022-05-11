@@ -47,10 +47,9 @@ public class GetBoardList extends HttpServlet {
 	    // 바인딩해서 넘겨주신 다음, 결과페이지에서 수치정보도 확인해주세요.
 	    request.setAttribute("buttons", buttons);
 	    
-		BoardDAO bdao = BoardDAO.getInstance();
-		List<BoardVO> boardList = bdao.getBoardList();
-		System.out.println(boardList);
+		List<BoardVO> boardList = dao.getBoardList(pageNum);
 		request.setAttribute("boardList", boardList);
+		
 		RequestDispatcher dp = request.getRequestDispatcher("/board/getBoardList.jsp");
 		dp.forward(request, response);
 	}
