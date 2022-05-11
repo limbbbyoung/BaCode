@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.bacode.domain.BoardDAO;
+import kr.co.bacode.domain.BoardVO;
 import kr.co.bacode.domain.PickDAO;
+import kr.co.bacode.domain.PickVO;
 
 /**
  * Servlet implementation class Pick
@@ -31,8 +33,7 @@ public class Pick extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -40,15 +41,29 @@ public class Pick extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		
+		
+		
+		  
 	
+		
+	
+		BoardDAO dao1 = BoardDAO.getInstance();
+		
 		String pickUid = request.getParameter("pickId");
 		String strPickNum = request.getParameter("postNum");
 		int pickNum = Integer.parseInt(strPickNum);
 		PickDAO dao = PickDAO.getInstance();
-		
 		dao.insertPick(pickNum, pickUid);
-
-		response.sendRedirect("http://localhost:52525/BaCode/getBoardDetail?postnum=" + pickNum);
+		
+		BoardVO board = dao1.getBoardDetail(pickNum);
+		request.setAttribute("board" , board);
+		
+		PickVO pick = dao.getPickList(pickNum, pickUid);
+		request.setAttribute("pick", pick);
+		RequestDispatcher dp = request.getRequestDispatcher("/board/boardDetail.jsp");
+		dp.forward(request, response);	
+		//response.sendRedirect("http://localhost:52525/BaCode/getBoardDetail?postnum=" + pickNum);
 	    
 		
 		
