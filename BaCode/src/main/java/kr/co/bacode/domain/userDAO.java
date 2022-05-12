@@ -178,5 +178,40 @@ public class userDAO {
         	}
         	return user;
         } // userLoginCheck 끝나는 지점
+    	
+    	public userVO userIdcheck(String nick) {
+        	Connection con = null;
+        	ResultSet rs = null;
+        	PreparedStatement pstmt = null;
+        	
+        	userVO user = new userVO();
+        
+        	try {
+        		con = ds.getConnection();
+        		
+        		String sql = "SELECT * FROM usertbl WHERE nck_name=?";  
+        		pstmt = con.prepareStatement(sql);
+        		pstmt.setString(1, nick);
+        		rs = pstmt.executeQuery(); 
+
+        		if(rs.next()); {
+        			user.setuId(rs.getString(1));
+            		user.setuPw(rs.getString(2));
+        		}
+      
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	} finally {
+        		try {
+        			con.close();
+        			rs.close();
+        			pstmt.close();
+        		} catch(Exception e) {
+        			e.printStackTrace();
+        		}
+        	}
+        	return user;
+        } // userLoginCheck 끝나는 지점
+
 
 }

@@ -56,7 +56,7 @@
 	<hr/>
 	<!-- <a href="http://localhost:8181/BaCode/boardList"><buttion>목록으로</buttion></a> -->
 	
-	<form action="http://localhost:52525/BaCode/mainSearch.jsp" method="post">
+	<form action="http://localhost:52525/BaCode/user/mainSearch.jsp" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
 	<input type="submit" value="홈으로" />
 	</form>

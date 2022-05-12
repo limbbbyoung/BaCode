@@ -7,13 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	 <form name="check">
+${user} 
+	 <form action="/BaCode/userDelete" method="post">
+	 <input type="hidden" name="uId" value="${user.uId }">
     <input type="hidden" id="password1" value="${user.uPw }" ><br/>
     비밀번호확인 : <input type="password" id="password2" >
-    <input type="button" onclick="test()" value="비밀번호 확인">
+    <input type="submit" onclick="test()" value="비밀번호 확인">
   </form>
-  <form name="delete">
-  </form>
+  <a href="/BaCode/getUserDetail"><button>돌아가기</button></a>
+ 
   <script type="text/javascript">
   function test() {
       var p1 = document.getElementById("password1").value;
@@ -23,6 +25,7 @@
         return false;
       } else{
         alert("비밀번호가 일치합니다");
+        
         return true;
       }
 

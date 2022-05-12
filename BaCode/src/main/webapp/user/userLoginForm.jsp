@@ -59,6 +59,7 @@
 			</form>
 			<br/>
 			<a class="btn btn-success" href="/BaCode/dvCheck" role="button" aria-disabled="false">회원가입</a>
+			<a class="btn btn-success" href="/BaCode/userIdForm" role="button" aria-disabled="false">아이디 찾기</a>
 		</div>
 		<div class="col-md-3"></div>
 	</div>
