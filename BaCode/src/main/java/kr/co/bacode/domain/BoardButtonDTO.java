@@ -86,7 +86,6 @@
 					+ totalPages + ", startPage=" + startPage + ", endPage=" + endPage + "]";
 		}
 		
-
 	}
 
 

@@ -230,7 +230,79 @@ public class BoardDAO {
 			}
 		}
 		return boardCount;
+	} // getBoardCount 메서드 끝나는 지점
+	
+	// 카테고리의 글만 불러오기
+	public List<BoardVO> getBoardListCatego(String catego, int pageNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<BoardVO> boardList = new ArrayList<>();
+		try {
+			con = ds.getConnection();
+			int limitNum = (pageNum -1)*10;
+			String sql = "SELECT * FROM tradeTbl WHERE catego = ? ORDER BY postnum DESC limit ?, 10";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, catego);
+			pstmt.setInt(2, limitNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardVO boardUser = new BoardVO();
+				boardUser.setPostNum(rs.getInt(1));
+				boardUser.setuId(rs.getString(2));
+				boardUser.setTitle(rs.getString(3));
+				boardUser.setContent(rs.getString(4));
+				boardUser.setBdate(rs.getDate(5));
+				boardUser.setMdate(rs.getDate(6));
+				boardUser.setCatego(rs.getString(7));
+				boardUser.setHeart_num(rs.getInt(8));
+				boardUser.setHit(rs.getInt(9));
+				boardList.add(boardUser);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return boardList;
 	}
+	
+	// 카테고리별 글 불러오기시 필요한 글 갯수 메서드
+	public int getBoardCountCatego(String catego) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int boardCount = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT count(*) FROM tradeTbl WHERE catego=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, catego);
+			rs = pstmt.executeQuery();	
+
+			if(rs.next()) {
+				boardCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return boardCount;
+	} // getBoardCountCatego 메서드 끝나는 지점
 	
 }
 	
