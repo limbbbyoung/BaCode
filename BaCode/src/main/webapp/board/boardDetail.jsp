@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <style>
@@ -27,6 +27,11 @@
 	수정날짜 : <input type="text" value="${board.mdate }"><br/>
 	<input type="submit" value="수정하기">
 	</form>
+	<form action="/BaCode/buyInsert" method="post">
+	<input type="hidden" value=${board.postNum } name="postNum">
+	<input type="hidden" value=${s_id } name="s_id">
+	<input type="submit" value="구매하기">
+	</form>
 	<form action="/BaCode/boardDelete" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="submit" value="삭제하기">
@@ -38,5 +43,12 @@
 		<input type="hidden" value="${board.postNum}" name="postNum">
 		<input type="hidden" value="${s_id }" name="pickId">
 	</form>
+	<c:if test="${sessionScope.s_id eq buy.uId }">
+	<form action="/BaCode/reviewInsertForm" method="get">
+		<input type="submit" value="리뷰쓰러가기">
+		<input type="hidden" value="${buy.postNum }" name="postNum">
+		<input type="hidden" value="${s_id }" name="s_id">
+	</form>
+	</c:if>
 </body>
 </html>
