@@ -1,12 +1,12 @@
 package kr.co.bacode.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BuyVO {
 		private int buyNum;
-		private Date buyBdate;
-		private int postNum;
 		private String uId;
+		private int postNum;
+		private Date buyBdate;
 		
 		public int getBuyNum() {
 			return buyNum;

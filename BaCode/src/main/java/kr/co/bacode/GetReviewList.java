@@ -37,8 +37,8 @@ public class GetReviewList extends HttpServlet {
 		ReviewDAO dao = ReviewDAO.getInstance();
 		List<ReviewVO> reviewList = dao.getReviewList();
 		System.out.println(reviewList);
-		request.setAttribute("review", reviewList);
-		RequestDispatcher dp = request.getRequestDispatcher("/review/getReivewList.jsp");
+		request.setAttribute("reviewList", reviewList);
+		RequestDispatcher dp = request.getRequestDispatcher("/review/getReviewList.jsp");
 		dp.forward(request, response);
 	}
 
