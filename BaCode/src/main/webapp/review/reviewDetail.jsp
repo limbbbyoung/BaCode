@@ -10,11 +10,11 @@
 <body>
 		<form action="/BaCode/reviewUpdateForm" method="post">
 	<input type="hidden" value="${review.rvNum }" name="rvNum">
-	리뷰 제목 : <input type="text" style="width:300px;height:25px;" value="${review.rvTitle }"><br/>
+	리뷰 제목 : <input type="text" style="width:300px;height:25px;" value="${review.title }"><br/>
 	작성자 : <input type="text" value="${review.uId }"><br/> 
-	작성날짜 : <input type="text" value="${review.rvBdate }"><br/>
-	<textarea cols="50" rows="20">${review.rvContent }</textarea><br/>
-	수정날짜 : <input type="text" value="${review.rvUdate }"><br/>
+	작성날짜 : <input type="text" value="${review.bdate }"><br/>
+	<textarea cols="50" rows="20">${review.content }</textarea><br/>
+	수정날짜 : <input type="text" value="${review.mdate }"><br/>
 	<input type="submit" value="수정하기">
 	</form>
 	<form action="/BaCode/reviewDelete" method="post">

@@ -18,7 +18,6 @@
 </head>
 <body>
 	    <h1>/reviewList 임시 페이지</h1>
-	    ${reviewList }
     <table class="table table-primary table-hover">
        <thead>
            <tr>
@@ -29,14 +28,14 @@
               <th>수정날짜</th>
            </tr>
        </thead>
-        <tbody>
+       <tbody>
          <c:forEach var="review" items="${reviewList }">
 	          <tr>
-	             <td>${review.rvNum}</td>
-	             <td><a href="http://localhost:52525/BaCode/getReviewDetail?rvNum=${review.rvNum}">${review.rvTitle}</a></td>
+				 <td>${review.rvNum}</td>
+	             <td><a href="http://localhost:52525/BaCode/getReviewDetail?rvNum=${review.rvNum}">${review.title}</a></td>
 	             <td>${review.uId}</td>
-	             <td>${review.rvBdate}</td>
-	             <td>${review.rvUdate}</td>
+	             <td>${review.bdate}</td>
+	             <td>${review.udate}</td>
 	          </tr>
         </c:forEach>
        </tbody>

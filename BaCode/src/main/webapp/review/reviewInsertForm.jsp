@@ -42,7 +42,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${postNum}
 			<div class="container">
 		  <div class="row">
 		    <div class="col">
@@ -64,10 +63,10 @@
 				 </div>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
 			     <form action="http://localhost:52525/BaCode/reviewInsert" method="post">
-			     <input type="hidden" name="postNum" value="${postNum }">
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
+			     <!--  구매한 물품 : <input type="text" name="postNum" value="${postNum }">${postNum.title } <br/> -->
 			     작성자 : <input type="text" name="uId" value="${uId }"> <br/>
-			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content" placeholder="리뷰를 작성해주세요."></textarea><br/>
+			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content" placeholder="리뷰를 작성해주세요."></textarea><br/><br/>
 			     <button type="submit" class="btn btn-success">등록하기</button>
 			     </form>
 		    </div>

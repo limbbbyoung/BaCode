@@ -35,7 +35,7 @@ public class ReviewDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = ds.getConnection();
-			String sql = "INSERT INTO reviewTbl(postnum, uid, rv_title, rv_content) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO reviewTbl(postnum, uid, title, content) VALUES(?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, postNum);
 			pstmt.setString(2, uId);
