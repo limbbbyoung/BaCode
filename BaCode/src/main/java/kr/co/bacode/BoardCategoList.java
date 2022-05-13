@@ -11,32 +11,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.cj.Session;
+
 import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
 
 /**
- * Servlet implementation class searchWhat
+ * Servlet implementation class BoardCategoList
  */
-@WebServlet("/searchWhat")
-public class SearchWhat extends HttpServlet {
+@WebServlet("/boardCategoList")
+public class BoardCategoList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchWhat() {
+    public BoardCategoList() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징 처리
 		String strPageNum = request.getParameter("pageNum");
-		String searchWhat = request.getParameter("search_name"); // 카테고리 이름 가져오기
+		HttpSession session = request.getSession();
+		String searchWhat = (String)session.getAttribute("searchWhat"); // 카테고리 이름 가져오기
+		System.out.println(searchWhat);
 		// 2. pageNum이 안 들어왔을때 자동으로 1이 getBoardList에 들어가도록 조치해주세요.
 		// 위의 strPageNum이 Null이냐 아니냐에 따라 달라져야 하는데 null인 경우 1로 처리하도록
 		// null이 아닌 경우는 그냥 바로 해당 페이지를 보여주도록 처리해주세요.
@@ -55,27 +59,32 @@ public class SearchWhat extends HttpServlet {
 		if (searchWhat.equals("마우스")) {
 			List<BoardVO> categoboardList = dao.getBoardListCatego(searchWhat ,pageNum);
 			request.setAttribute("boardList", categoboardList);
-			HttpSession session = request.getSession();
-			session.setAttribute("searchWhat", searchWhat);
+			request.setAttribute("searchWhat", searchWhat);
 			RequestDispatcher dp = request.getRequestDispatcher("/board/mouseList.jsp");
 			dp.forward(request, response);
 		} else if(searchWhat.equals("키보드")) {
 			List<BoardVO> categoboardList = dao.getBoardListCatego(searchWhat ,pageNum);
 			request.setAttribute("boardList", categoboardList);
-			HttpSession session = request.getSession();
-			session.setAttribute("searchWhat", searchWhat);
+			request.setAttribute("searchWhat", searchWhat);
 			RequestDispatcher dp = request.getRequestDispatcher("/board/keyboardList.jsp");
 			dp.forward(request, response);
 		} else if(searchWhat.equals("노트북")) {
 			List<BoardVO> categoboardList = dao.getBoardListCatego(searchWhat ,pageNum);
 			request.setAttribute("boardList", categoboardList);
-			HttpSession session = request.getSession();
-			session.setAttribute("searchWhat", searchWhat);
+			request.setAttribute("searchWhat", searchWhat);
 			RequestDispatcher dp = request.getRequestDispatcher("/board/notebookList.jsp");
 			dp.forward(request, response);
 		} else {
-			response.sendRedirect("http://localhost:52525/BaCode/board/failSearch.jsp");
+			// 해당 검색어는 지원하지 않는다는 Alert 띄우기
 		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

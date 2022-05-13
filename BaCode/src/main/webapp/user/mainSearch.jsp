@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <html>
@@ -35,7 +36,9 @@
 		<div class="col-md-6">
 			<form action="/BaCode/searchWhat" method="post">
 			<input type="text" name="search_name" style="width:750px;height:40px;" placeholder="검색어를 입력하세요" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"/>
+			<input type="submit" value="검색">
 			</form>
+			<br/>
 		    <a href="/BaCode/getBoardList"><button class="button" style="border-radius:20px">등록된상품보러가기</button></a><br/>
 			<a href="/BaCode/boardInsertForm"><button class="button" style="border-radius:20px">상품등록하기</button></a>
 		</div>
