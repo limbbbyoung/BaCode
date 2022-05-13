@@ -51,17 +51,17 @@ public class BuyDAO {
 		}
 	} // insertBuy 종료
 	
-	// getBuyList
-	public BuyVO getBuyList(int buyNum, String uid) {
+	// getBuyList  buy 정보주는 기능
+	public BuyVO getBuyList(int postNum, String uid) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BuyVO buy = new BuyVO();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM pickTbl WHERE buynum=? and uid=?" ;
+			String sql = "SELECT * FROM buyTbl WHERE postnum=? and uid=?" ;
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, buyNum);
+			pstmt.setInt(1, postNum);
 			pstmt.setString(2, uid);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {

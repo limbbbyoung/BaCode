@@ -15,7 +15,8 @@
 <body>
 	${board }</br>
 	세션아이디 : ${s_id }</br>
-	픽2 : ${pick }
+	픽2 : ${pick } <br/>
+	구매 : ${buy }
 	<p>
 	<form action="/BaCode/boardUpdateForm" method="post">
 	<input type="hidden" value="${board.postNum }" name="postnum">
