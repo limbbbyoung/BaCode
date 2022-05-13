@@ -41,9 +41,10 @@
 					   </div>
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
 			     작성자 : ${uId }<br/>
-			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content"></textarea><br/><br/>
+			     <p>글내용 : </p> <textarea cols="50" rows="12" name="content"></textarea><br/><br/>
 			     <button type="submit" class="btn btn-success">상품 등록하기</button>
-			     </form>
+			     </form><br/>
+			     <a href="http://localhost:52525/BaCode/user/mainSearch.jsp"><button class="btn btn-success">돌아가기</button></a>
 			     <!-- <a href="http://localhost:8181/BaCode/" ><button>내 상품 목록 보러가기</button></a> -->
 		    </div>
 		    <div class="col">
