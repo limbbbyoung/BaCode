@@ -45,6 +45,7 @@
 		<input type="hidden" value="${board.postNum}" name="postNum">
 		<input type="hidden" value="${s_id }" name="pickId">
 	</form>
+
 	<c:if test="${sessionScope.s_id eq buy.uId }">
 	<form action="/BaCode/reviewInsertForm" method="get">
 		<input type="submit" value="리뷰쓰러가기">
@@ -57,5 +58,6 @@
 	<input type="hidden" value=${s_id } name="s_id">
 	<button type="submit" class="btn btn-success">신고하기</button>
 	</form>
+
 </body>
 </html>
