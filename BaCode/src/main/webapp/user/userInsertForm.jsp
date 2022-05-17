@@ -21,7 +21,7 @@
 		         <h1>회원가입</h1>
 			     <hr/>
 			     <form id="frn" action="http://localhost:52525/BaCode/userInsert" method="post">
-			     아이디 : <input type="text" name="uId" placeholder="아이디"><br/>
+			     아이디 : <input type="text" name="uId" id="uu" placeholder="아이디"><br/>
 			     비밀번호 : <input type="password" name="uPw" placeholder="비밀번호"><br/>
 			     이름 : <input type="text" name="uName" placeholder="이름"><br/>
 			     닉네임 : <input type="text" name="uckName" placeholder="닉네임"><br/>
@@ -47,15 +47,18 @@
 		<script type="text/javascript">
 		$( "#frm" ).click(function( event ) {
 			event.preventDefault();
-			if(document.getElementById("isAgree").checked) {
-				alert("체크");
-			} else {
-				alert("동의버튼을 누르세요");
-			}
-			  
-			});
+			if(document.getElementById("uu").value.length < 1) {
+				alert("아이디를 입력해주세요");
+			} else if(document.getElementById("uu").value.length > 20) {
+				alert("아이디는 20자 내외입니다.");
+ 			} else {
+ 				if(document.getElementById("isAgree").checked) {
+ 					$("#frn").submit()
+ 				} else {
+ 					alert("동의버튼을 누르세요");
+ 				}
+ 			}
+		});
 		</script>
-		<pre id='result'>
-</pre>
 </body>
 </html>
