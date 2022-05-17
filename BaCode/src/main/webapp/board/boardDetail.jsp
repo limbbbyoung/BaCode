@@ -44,12 +44,6 @@
 		<input type="hidden" value="${board.postNum}" name="postNum">
 		<input type="hidden" value="${s_id }" name="pickId">
 	</form>
-	<c:if test="${sessionScope.s_id eq buy.uId }">
-	<form action="/BaCode/reviewInsertForm" method="get">
-		<input type="submit" value="리뷰쓰러가기">
-		<input type="hidden" value="${buy.postNum }" name="postNum">
-		<input type="hidden" value="${s_id }" name="s_id">
-	</form>
-	</c:if>
+
 </body>
 </html>

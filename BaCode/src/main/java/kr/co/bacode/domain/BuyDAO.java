@@ -3,6 +3,8 @@ package kr.co.bacode.domain;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -52,7 +54,7 @@ public class BuyDAO {
 	} // insertBuy 종료
 	
 	// getBuyList  buy 정보주는 기능
-	public BuyVO getBuyList(int postNum, String uid) {
+	public BuyVO getBuyList(int postNum, String uId) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -62,13 +64,14 @@ public class BuyDAO {
 			String sql = "SELECT * FROM buyTbl WHERE postnum=? and uid=?" ;
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, postNum);
-			pstmt.setString(2, uid);
+			pstmt.setString(2, uId);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				buy.setBuyNum(rs.getInt(1));
 				buy.setuId(rs.getString(2));
 				buy.setPostNum(rs.getInt(3));
 				buy.setBuyBdate(rs.getDate(4));
+				buy.setBuyTitle(rs.getString(5));
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -82,5 +85,40 @@ public class BuyDAO {
 			}
 		}
 		return buy;
+	}
+	// 게시판에서 구매목록 불러오는 메서드
+	public List<BuyVO> getBuyList(String uId) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<BuyVO> buyList = new ArrayList<>();
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM buyTbl WHERE uid= ? ORDER BY buyNum DESC";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, uId);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				BuyVO buy = new BuyVO();
+				buy.setBuyNum(rs.getInt(1));
+				buy.setuId(rs.getString(2));
+				buy.setPostNum(rs.getInt(3));
+				buy.setBuyBdate(rs.getDate(4));
+				buy.setBuyTitle(rs.getString(5));
+				buyList.add(buy);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return buyList;
 	}
 }

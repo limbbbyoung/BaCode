@@ -1,6 +1,7 @@
 package kr.co.bacode;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,45 +17,40 @@ import kr.co.bacode.domain.BuyDAO;
 import kr.co.bacode.domain.BuyVO;
 
 /**
- * Servlet implementation class BuyInsert
+ * Servlet implementation class GetBuyList
  */
-@WebServlet("/buyInsert")
-public class BuyInsert extends HttpServlet {
+@WebServlet("/getBuyList")
+public class GetBuyList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuyInsert() {
+    public GetBuyList() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8");
-		
-		// buyinsert 불러오기
+		String uId = (String)session.getAttribute("s_id");
 		String strPostNum = request.getParameter("postNum");
 		int postNum = Integer.parseInt(strPostNum);
-		String uId = (String)session.getAttribute("s_id");
 		BuyDAO dao = BuyDAO.getInstance();
-		dao.insertBuy(postNum, uId);
-		BuyVO buy = dao.getBuyList(postNum, uId);
+		List<BuyVO> buyList = dao.getBuyList(uId);
+		System.out.println(buyList);
 		
-		// Detail 페이지로 가기위한 boardDAO 생성
 		BoardDAO boardDao = BoardDAO.getInstance();
 		BoardVO board = boardDao.getBoardDetail(postNum);
 		request.setAttribute("board" , board);
-		
-		request.setAttribute("buy" , buy);
-		RequestDispatcher dp = request.getRequestDispatcher("/buy/buySuccess.jsp");
+		request.setAttribute("buyList", buyList);
+		RequestDispatcher dp = request.getRequestDispatcher("/buy/getBuyList.jsp");
 		dp.forward(request, response);
-		//response.sendRedirect("http://localhost:52525/BaCode/getBoardDetail?postnum=" + postNum);
-		
 	}
 
+
 }
+
