@@ -159,6 +159,7 @@ public class BoardDAO {
 		}
 		return board;
 	} // getBoardDetail 종료지점
+	
 	// delete 기능
 	public void boardDelete(int postNum){
 		Connection con = null;

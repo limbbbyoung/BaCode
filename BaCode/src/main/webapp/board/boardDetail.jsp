@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <html>
 <style>
  p {
@@ -51,5 +52,10 @@
 		<input type="hidden" value="${s_id }" name="s_id">
 	</form>
 	</c:if>
+	<form action="/BaCode/SOSInsertForm" method="post">
+	<input type="hidden" value=${board.postNum } name="postNum">
+	<input type="hidden" value=${s_id } name="s_id">
+	<button type="submit" class="btn btn-success">신고하기</button>
+	</form>
 </body>
 </html>
