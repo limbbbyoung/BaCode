@@ -27,9 +27,9 @@
 </head>
 <body>
 <div id="header">헤더
-<a href="/BaCode/getSOSList"><button class="btn btn-success">신고글 목록 보기</button></a>
-<a href="/BaCode/userLogout"><button class="btn btn-success">로그아웃</button></a>
-<a href="/BaCode/getUserDetail"><button class="btn btn-success">내정보</button></a>
+<a href="/BaCode/getSOSList"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">신고글 목록 보기</button></a>
+<a href="/BaCode/userLogout"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">로그아웃</button></a>
+<a href="/BaCode/getUserDetail"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">내정보</button></a>
 </div>
 <div id="container">
 	<div class="row">
@@ -40,8 +40,8 @@
 			<input type="submit" value="검색">
 			</form>
 			<br/>
-		    <a href="/BaCode/getBoardList"><button class="button" style="border-radius:20px">등록된상품보러가기</button></a><br/>
-			<a href="/BaCode/boardInsertForm"><button class="button" style="border-radius:20px">상품등록하기</button></a>
+		    <a href="/BaCode/getBoardList"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">등록된상품보러가기</button></a><br/>
+			<a href="/BaCode/boardInsertForm"><button class="btn" style="border-radius:20px">상품등록하기</button></a>
 		</div>
 		<div class="col-md-3">.col-md-3</div>
 	</div>

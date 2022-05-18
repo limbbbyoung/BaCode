@@ -59,6 +59,5 @@
 	<input type="hidden" value=${s_id } name="s_id">
 	<button type="submit" class="btn btn-success">신고하기</button>
 	</form>
-
 </body>
 </html>
