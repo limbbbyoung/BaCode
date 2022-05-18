@@ -54,7 +54,7 @@ public class UserLoginCheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+	/*	request.setCharacterEncoding("utf-8");
 		String formId = request.getParameter("userId");
 		String formPw = request.getParameter("userPw");
 		System.out.println(formId);
@@ -79,7 +79,7 @@ public class UserLoginCheck extends HttpServlet {
 			reUrl = "http://localhost:52525/BaCode/user/loginIdPwFail.jsp";
 		}
 		
-		response.sendRedirect(reUrl);
+		response.sendRedirect(reUrl);  */
 	}
 
 }

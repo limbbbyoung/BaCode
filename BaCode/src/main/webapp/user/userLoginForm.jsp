@@ -27,7 +27,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6 login">
 		    <img src="${pageContext.request.contextPath}/Images/Logo.jpg" class="img-responsive" alt="">
-			<form id="lo" action="/BaCode/userLoginCheck" method="post">
+			<form id="lo" action="/BaCode/userLoginCheck.do" method="post">
 			  <div class="col">
 			    <div class="row g-3 align-items-center" id="insertForm">
 				  <div class="col-auto">
