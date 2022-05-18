@@ -14,35 +14,34 @@
 	     color : black;
 	     text-decoration-line : none;
 	  }
+	a:hover { color:white; }
 </style>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>신고 목록</title>
 </head>
 <body>
-	<!-- ${boardList } -->
-    <h1>/boardList 임시 페이지</h1>
-    <table class="table table-hover" style="background-color : #8789C6;">
+	${SOSList }
+    <h1 style="color : #8789C6;">신고목록 페이지</h1>
+    <table class="table table-hover" style="color : #8789C6;">
        <thead>
            <tr>
-              <th>글번호</th>
-              <th>글제목</th>
-              <th>글쓴이</th>
+              <th>신고글 번호</th>
+              <th>신고글 제목</th>
+              <th>신고 아이디</th>
               <th>쓴날짜</th>
               <th>수정날짜</th>
-              <th>조회수</th>
            </tr>
        </thead>
        <!-- JSTL c:forEach와 ${boardList}를 활용하면 됩니다.
        전체 글 정보를 테이블 형식으로 보내주세요. -->
        <tbody>
-         <c:forEach var="board" items="${boardList }">
+         <c:forEach var="SOS" items="${SOSList }">
 	          <tr>
-	             <td>${board.postNum}</td>
-	             <td><a href="http://localhost:52525/BaCode/getBoardDetail?postnum=${board.postNum}">${board.title}</a></td>
-	             <td>${board.uId}</td>
-	             <td>${board.bdate}</td>
-	             <td>${board.mdate}</td>
-	             <td>${board.hit}</td>
+	             <td>${SOS.stNum}</td>
+	             <td><a href="http://localhost:52525/BaCode/getSOSDetail?stNum=${SOS.stNum}" style="color : #8789C6;">${SOS.stTitle}</a></td>
+	             <td>${SOS.uId}</td>
+	             <td>${SOS.stBdate}</td>
+	             <td>${SOS.stMdate}</td>
 	          </tr>
         </c:forEach>
        </tbody>
@@ -54,17 +53,16 @@
 		  <!-- 이전 10개 페이지 조회버튼을 출력합니다.
           현재 조회중인 페이지가 1~10 페이지가 아닐때만, 첫페이지 -1을 목표주소로 해서 prev 버튼을 만들면 됩니다. -->
           <c:if test="${buttons.startPage ne 1}">
-		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList?pageNum=${buttons.startPage-1 }">Previous</a></li>
+		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getSOSList?pageNum=${buttons.startPage-1 }">Previous</a></li>
 		  </c:if>
-    <c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }"> 
-		    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList?pageNum=${pageNum}">${pageNum }</a></li>
-    </c:forEach> 
+		    <c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }"> 
+				    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getSOSList?pageNum=${pageNum}">${pageNum }</a></li>
+		    </c:forEach> 
           <c:if test="${buttons.endPage ne buttons.totalPages}">
-		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList?pageNum=${buttons.endPage+1 }">Next</a></li>
+		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getSOSList?pageNum=${buttons.endPage+1 }">Next</a></li>
 		  </c:if>
 		  </ul>
 	</nav>
-    <c:if test="${sessionScope.s_id ne null }"><a href="http://localhost:52525/BaCode/boardInsertForm"><button class="btn btn-success">글 쓰기</button></a></c:if>
-    <a href="http://localhost:52525/BaCode/mainSearch" ><button>홈으로</button></a>
+    <a class="btn" href="http://localhost:52525/BaCode/user/mainSearch.jsp" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">홈으로</a>
 </body>
 </html>

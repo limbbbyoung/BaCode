@@ -14,6 +14,7 @@ import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
 import kr.co.bacode.domain.SOSDAO;
+import kr.co.bacode.domain.SOSVO;
 
 /**
  * Servlet implementation class GetSOSList
@@ -34,7 +35,11 @@ public class GetSOSList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 페이징 처리
+		        // 거래 완료 버튼을 위한 파라미터값 받아오기
+				//String strSuccessNum = request.getParameter("successNum");
+		        //int successNum = Integer.parseInt(strSuccessNum);
+		        //request.setAttribute("successNum", successNum);
+		        // 페이징 처리
 				String strPageNum = request.getParameter("pageNum");
 				// 2. pageNum이 안 들어왔을때 자동으로 1이 getBoardList에 들어가도록 조치해주세요.
 				// 위의 strPageNum이 Null이냐 아니냐에 따라 달라져야 하는데 null인 경우 1로 처리하도록
@@ -51,10 +56,10 @@ public class GetSOSList extends HttpServlet {
 			    // 바인딩해서 넘겨주신 다음, 결과페이지에서 수치정보도 확인해주세요.
 			    request.setAttribute("buttons", buttons);
 			    
-				List<BoardVO> boardList = sdao.getBoardList(pageNum);
-				request.setAttribute("boardList", boardList);
+				List<SOSVO> SOSList = sdao.getSOSList(pageNum);
+				request.setAttribute("SOSList", SOSList);
 				
-				RequestDispatcher dp = request.getRequestDispatcher("/board/getBoardList.jsp");
+				RequestDispatcher dp = request.getRequestDispatcher("/SOS/getSOSList.jsp");
 				dp.forward(request, response);
 	}
 
