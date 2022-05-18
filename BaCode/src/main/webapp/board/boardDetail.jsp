@@ -30,8 +30,9 @@
 	<input type="submit" value="수정하기">
 	</form>
 	<form action="/BaCode/buyInsert" method="post">
-	<input type="hidden" value=${board.postNum } name="postNum">
-	<input type="hidden" value=${s_id } name="s_id">
+	<input type="hidden" value="${board.postNum }" name="postNum">
+	<input type="hidden" value="${board.title }" name="title"> 
+	<input type="hidden" value="${s_id }" name="s_id">
 	<input type="submit" value="구매하기">
 	</form>
 	<form action="/BaCode/boardDelete" method="post">

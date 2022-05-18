@@ -41,8 +41,9 @@ public class BuyInsert extends HttpServlet {
 		String strPostNum = request.getParameter("postNum");
 		int postNum = Integer.parseInt(strPostNum);
 		String uId = (String)session.getAttribute("s_id");
+		String title = request.getParameter("title");
 		BuyDAO dao = BuyDAO.getInstance();
-		dao.insertBuy(postNum, uId);
+		dao.insertBuy(postNum, uId, title);
 		BuyVO buy = dao.getBuyList(postNum, uId);
 		
 		// Detail 페이지로 가기위한 boardDAO 생성

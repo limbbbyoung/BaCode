@@ -31,15 +31,16 @@ public class BuyDAO {
 		return dao;
 	}
 	// insertBuy 시작
-	public void insertBuy (int postNum, String uId) {
+	public void insertBuy (int postNum, String uId, String title) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = ds.getConnection();
-			String sql = "INSERT INTO buyTbl(postnum, uid) VALUES(?, ?)";
+			String sql = "INSERT INTO buyTbl(postnum, uid, buy_title) VALUES(?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, postNum);
 			pstmt.setString(2, uId);
+			pstmt.setString(3, title);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

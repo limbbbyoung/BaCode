@@ -11,13 +11,12 @@
 </head>
 <body>
 	<h1>/buyList 임시 페이지</h1>
-	    ${buyList }
+	    ${buyList } <br/>
     <table class="table table-primary table-hover">
        <thead>
            <tr>
-              <th>번호</th>
+              <th>주문번호</th>
               <th>제목</th>
-              <th>ID</th>
               <th>구매날짜</th>
            </tr>
        </thead>
@@ -25,7 +24,7 @@
          <c:forEach var="buy" items="${buyList }">
 	          <tr>
 	             <td>${buy.buyNum}</td>
-	             <td>${buy.title}</td>
+	             <td><a href="http://localhost:52525/BaCode/getBoardDetail?postnum=${buy.postNum}">${buy.buyTitle}</a></td>
 	             <td>${buy.buyBdate}</td>
 	          </tr>
         </c:forEach>
