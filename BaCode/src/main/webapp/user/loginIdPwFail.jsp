@@ -11,6 +11,6 @@
 <body>
 	
 	<h1>아이디 또는 비밀번호가 틀렸습니다. 다시 로그인해주세요</h1>
-	<a href="/BaCode/userLogin">로그인 창으로</a>
+	<a href="/BaCode/userLogin.do">로그인 창으로</a>
 </body>
 </html>

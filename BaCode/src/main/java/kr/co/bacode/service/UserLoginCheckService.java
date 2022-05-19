@@ -32,15 +32,14 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 			HttpSession session = request.getSession();
 			session.setAttribute("s_id", formId);
 		} else { 
-			String pwfail = "비밀번호가 틀렸다.";
-			request.setAttribute("login_fail", pwfail);
+			String loginPwFail = "pw";
+			request.setAttribute("loginPwFail", loginPwFail);
 		}
 	} else {
-		String idfail = "아이디가 없다.";
-		request.setAttribute("login_fail" , idfail);
+		String loginIdFail = "id";
+		request.setAttribute("loginIdFail" , loginIdFail);
 	}
 	
-	response.sendRedirect(reUrl);
 	}
 
 }

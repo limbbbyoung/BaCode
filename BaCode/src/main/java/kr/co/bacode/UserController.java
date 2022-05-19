@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.bacode.domain.userDAO;
+import kr.co.bacode.service.DvCheckService;
 import kr.co.bacode.service.IUserService;
+import kr.co.bacode.service.UserInsertFormService;
 import kr.co.bacode.service.UserLoginCheckService;
 import kr.co.bacode.service.UserLoginService;
 
@@ -33,7 +35,6 @@ public class UserController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doRequest(request, response);
 	}
 
@@ -59,6 +60,14 @@ public class UserController extends HttpServlet {
 			sv = new UserLoginCheckService();
 			sv.execute(request, response);
 			ui = "/user/mainSearch.jsp";
+		} else if(uri.equals("/BaCode/userInsertForm.do")) {
+			sv = new UserInsertFormService();
+			sv.execute(request, response);
+			ui = "/user/userInsertForm.jsp";
+		} else if(uri.equals("/BaCode/dvCheck.do")) {
+			sv = new DvCheckService();
+			sv.execute(request, response);
+			ui = "/user/dvCheck.jsp";
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
