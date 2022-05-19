@@ -36,6 +36,9 @@ public class ReviewInsert extends HttpServlet {
 		System.out.println("/reviewInsert 접속");
 		// DAO 생성 및 싱글턴 패턴 
 		ReviewDAO dao = ReviewDAO.getInstance();
+		String angry = request.getParameter("angry");
+		System.out.println(angry);
+		String selUid = request.getParameter("selUid");
 		String strPostNum = request.getParameter("postNum");
 		int postNum = Integer.parseInt(strPostNum);
 		String uId = (String)session.getAttribute("s_id");
