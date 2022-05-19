@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<c:if test="${loginPwFail eq 'pw' }">
-	<% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>
-</c:if>
-<c:if test="${loginIdFail eq 'id' }">
-	<% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>
-</c:if>
-<c:if test="${sessionScope.s_id eq null }">
-	<% response.sendRedirect("/BaCode/userLogin.do"); %>
-</c:if>
-
+     
+<c:choose>
+<c:when test="${loginIdFail eq 'id'}">
+<% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>
+</c:when>
+<c:when test="${loginPwFail eq 'pw'}">
+<% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>
+</c:when>
+<c:when test="${sessionScope.s_id eq null }">
+<% response.sendRedirect("/BaCode/userLogin.do"); %>
+</c:when>
+<c:otherwise>
+</c:otherwise>
+</c:choose>
 
 <!DOCTYPE html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">

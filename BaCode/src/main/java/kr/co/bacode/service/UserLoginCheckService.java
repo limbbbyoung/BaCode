@@ -20,6 +20,8 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	String dbId = null;
 	String dbPw = null;
 	String reUrl = null;
+	String loginPwFail = null;
+	String loginIdFail = null;
 	userDAO dao = userDAO.getInstance();
 	userVO user = dao.userLoginCheck(formId);
 	dbId = user.getuId(); 
@@ -32,11 +34,11 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 			HttpSession session = request.getSession();
 			session.setAttribute("s_id", formId);
 		} else { 
-			String loginPwFail = "pw";
+			loginPwFail = "pw";
 			request.setAttribute("loginPwFail", loginPwFail);
 		}
 	} else {
-		String loginIdFail = "id";
+		loginIdFail = "id";
 		request.setAttribute("loginIdFail" , loginIdFail);
 	}
 	
