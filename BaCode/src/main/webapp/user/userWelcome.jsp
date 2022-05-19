@@ -8,6 +8,6 @@
 </head>
 <body>
      <h1>회원가입 축하드립니다.</h1>
-     <a href="http://localhost:52525/BaCode/user/userLoginForm.jsp">로그인 다시 시도하기</a>
+     <a href="/BaCode/userLogin.do">로그인 다시 시도하기</a>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/BaCode/userUpdate" method="post">
+	<form action="/BaCode/userUpdate.do" method="post">
 		아이디 : <input type="text" name="uId" value="${user.uId}" readonly> <br/>
 		비밀번호 : <input type="password" name="uPw" /> <br/>
 		이름 : <input type="text" name="uName" value="${ user.uName}" readonly /> <br/>

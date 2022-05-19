@@ -20,13 +20,13 @@
 		    <div class="col">
 		         <h1>회원가입</h1>
 			     <hr/>
-			     <form id="frn" action="http://localhost:52525/BaCode/userInsert" method="post">
+			     <form id="frn" action="/BaCode/userInsert.do" method="post">
 			     아이디 : <input type="text" name="uId" id="uu" placeholder="아이디"><br/>
 			     비밀번호 : <input type="password" name="uPw" placeholder="비밀번호"><br/>
 			     이름 : <input type="text" name="uName" placeholder="이름"><br/>
 			     닉네임 : <input type="text" name="uckName" placeholder="닉네임"><br/>
 			     이메일 : <input type="email" name="email" placeholder="이메일"><br/>
-			     휴대폰 번호 : <input type="tel" name="pNum" placeholder="휴대폰번호"><br/>
+			     휴대폰 번호 : <input type="tel" name="pNum" id="phone" placeholder="휴대폰번호"><br/>
 			     주소 : <input type="text" name="addr" placeholder="주소"><br/>
 			     <textarea cols="60" rows="4">
 여러분을 환영합니다.
@@ -51,6 +51,8 @@
 				alert("아이디를 입력해주세요");
 			} else if(document.getElementById("uu").value.length > 20) {
 				alert("아이디는 20자 내외입니다.");
+ 			} else if(document.getElementById("phone").value.length > 11){
+ 				alert("핸드폰번호는 -를 뺀 11자리 입니다.");
  			} else {
  				if(document.getElementById("isAgree").checked) {
  					$("#frn").submit()
