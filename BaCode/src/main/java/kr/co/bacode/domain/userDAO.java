@@ -212,6 +212,47 @@ public class userDAO {
         	}
         	return user;
         } // userLoginCheck 끝나는 지점
-
+    	
+    	public void upHeart(String selUid) {
+    		Connection con = null;
+    		PreparedStatement pstmt = null;
+    		try {
+    			con = ds.getConnection();
+    			String sql = "UPDATE userTbl SET heart = heart + 1 WHERE uId=?";
+    			pstmt = con.prepareStatement(sql);
+    			pstmt.setString(1, selUid);
+    			pstmt.executeUpdate();					
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		} finally { 
+    			try {
+    				con.close();
+    				pstmt.close();
+    			} catch(Exception e) {
+    				e.printStackTrace();
+    			}
+    		}	
+    	} // upHeart 끝나는 지점
+    	
+    	public void downHeart(String selUid) {
+    		Connection con = null;
+    		PreparedStatement pstmt = null;
+    		try {
+    			con = ds.getConnection();
+    			String sql = "UPDATE userTbl SET heart = heart - 1 WHERE uId=?";
+    			pstmt = con.prepareStatement(sql);
+    			pstmt.setString(1, selUid);
+    			pstmt.executeUpdate();					
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		} finally { 
+    			try {
+    				con.close();
+    				pstmt.close();
+    			} catch(Exception e) {
+    				e.printStackTrace();
+    			}
+    		}	
+    	} // downHeart 끝나는 지점
 
 }

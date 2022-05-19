@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.co.bacode.domain.BoardDAO;
+import kr.co.bacode.domain.BoardVO;
+
 /**
  * Servlet implementation class ReviewInsertForm
  */
@@ -30,6 +33,9 @@ public class ReviewInsertForm extends HttpServlet {
 		 String uId = (String)session.getAttribute("s_id");
 		 String strPostNum = request.getParameter("postNum");
 		 int postNum = Integer.parseInt(strPostNum);
+		 BoardDAO dao = BoardDAO.getInstance();
+		 BoardVO board = dao.getBoardDetail(postNum);
+		 request.setAttribute("board" , board);
 		 request.setAttribute("uId", uId);
 		 request.setAttribute("postNum", postNum);
 		 RequestDispatcher dp = request.getRequestDispatcher("/review/reviewInsertForm.jsp");
