@@ -8,7 +8,7 @@
 </head>
 <body>
 아이디 찾는 화면입니다.
-<form action="/BaCode/userIdPw" method="post">
+<form action="/BaCode/userIdPw.do" method="post">
 	<input type="text" name="nick" placeholder="닉네임을 입력하세요">
 	<input type="submit" value="아이디 찾기">
 </form>

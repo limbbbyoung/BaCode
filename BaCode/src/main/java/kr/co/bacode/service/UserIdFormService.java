@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class UserInsertFormService implements IUserService {
-	
-public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class UserIdFormService implements IUserService {
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 }

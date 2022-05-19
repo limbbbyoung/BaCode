@@ -12,10 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.bacode.domain.userDAO;
 import kr.co.bacode.service.AnswerRightService;
 import kr.co.bacode.service.DvCheckService;
+import kr.co.bacode.service.GetUserDetailService;
 import kr.co.bacode.service.IUserService;
-import kr.co.bacode.service.UserInsertFormService;
+import kr.co.bacode.service.UserIdFormService;
+import kr.co.bacode.service.UserIdPwService;
+import kr.co.bacode.service.UserInsertService;
 import kr.co.bacode.service.UserLoginCheckService;
 import kr.co.bacode.service.UserLoginService;
+import kr.co.bacode.service.UserLogoutService;
+import kr.co.bacode.service.UserUpdateFormService;
+import kr.co.bacode.service.UserUpdateService;
 
 /**
  * Servlet implementation class UserController
@@ -61,10 +67,6 @@ public class UserController extends HttpServlet {
 			sv = new UserLoginCheckService();
 			sv.execute(request, response);
 			ui = "/user/mainSearch.jsp";
-		} else if(uri.equals("/BaCode/userInsertForm.do")) {
-			sv = new UserInsertFormService();
-			sv.execute(request, response);
-			ui = "/user/userInsertForm.jsp";
 		} else if(uri.equals("/BaCode/dvCheck.do")) {
 			sv = new DvCheckService();
 			sv.execute(request, response);
@@ -73,7 +75,36 @@ public class UserController extends HttpServlet {
 			sv = new AnswerRightService();
 			sv.execute(request, response);
 			ui = "/user/userInsertForm.jsp";
+		} else if(uri.equals("/BaCode/userLogout.do")) {
+			sv = new UserLogoutService();
+			sv.execute(request, response);
+			ui = "/userLogin.do";
+		} else if(uri.equals("/BaCode/userInsert.do")) {
+			sv = new UserInsertService();
+			sv.execute(request, response);
+			ui = "/user/userWelcome.jsp";
+		} else if(uri.equals("/BaCode/getUserDetail.do")) {
+			sv = new GetUserDetailService();
+			sv.execute(request, response);
+			ui = "/user/getUserDetail.jsp";
+		} else if(uri.equals("/BaCode/userUpdateForm.do")) {
+			sv = new UserUpdateFormService();
+			sv.execute(request, response);
+			ui = "/user/userUpdateForm.jsp";
+		} else if(uri.equals("/BaCode/userUpdate.do")) {
+			sv = new UserUpdateService();
+			sv.execute(request, response);
+			ui = "getUserDetail.do?uId=" + request.getParameter("uId");
+		} else if(uri.equals("/BaCode/userIdPw.do")) {
+			sv = new UserIdPwService();
+			sv.execute(request, response);
+			ui = "/user/userIdPwOk.jsp";
+		} else if(uri.equals("/BaCode/userIdForm.do")) {
+			sv = new UserIdFormService();
+			sv.execute(request, response);
+			ui = "/user/userIdsearch.jsp";
 		}
+
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
 		dp.forward(request, response);

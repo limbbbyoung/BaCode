@@ -36,7 +36,7 @@
 		좋아요 지수 : ${user.heart } <br/>
 		휴대폰 번호 : ${user.pNum }<br/>
 		이메일 : ${user.email}<br/>
-		<form action="http://localhost:52525/BaCode/userUpdateForm" method="post">
+		<form action="/BaCode/userUpdateForm.do" method="post">
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
 			<button type="submit" class="btn btn-success">회원정보 수정하기</button> 
 		</form>
