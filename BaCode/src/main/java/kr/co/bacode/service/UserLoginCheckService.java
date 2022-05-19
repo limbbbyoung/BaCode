@@ -31,15 +31,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 			reUrl = "http://localhost:52525/BaCode/user/mainSearch.jsp";
 			HttpSession session = request.getSession();
 			session.setAttribute("s_id", formId);
-		} else { 
-			String loginPwFail = "pw";
-			request.setAttribute("loginPwFail", loginPwFail);
+			}
 		}
-	} else {
-		String loginIdFail = "id";
-		request.setAttribute("loginIdFail" , loginIdFail);
 	}
-	
-	}
-
 }

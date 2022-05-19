@@ -24,7 +24,7 @@ dv 체크 페이지 입니다.
 		<div class="col-md-4"></div>
 		<div class="col-md-5 question">
 			<p>개발자를 시작하면서 제일 먼저 실습하는 내용의 문구는 무엇인가?</p>
-			<form action="/BaCode/answerRight" method="post">
+			<form action="/BaCode/answerRight.do" method="post">
 			정답 : <input type="text" name="answer" placeholder="카멜케이스로 입력해주세요" style="width:300px;">
 			<input type="submit" value="제출" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"> 
 			</form>
