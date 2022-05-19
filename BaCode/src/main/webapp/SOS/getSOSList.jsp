@@ -38,7 +38,11 @@
          <c:forEach var="SOS" items="${SOSList }">
 	          <tr>
 	             <td>${SOS.stNum}</td>
-	             <td><a href="http://localhost:52525/BaCode/getSOSDetail?stNum=${SOS.stNum}" style="color : #8789C6;">${SOS.stTitle}</a></td>
+	             <td><a href="http://localhost:52525/BaCode/getSOSDetail?stNum=${SOS.stNum}" style="color : #8789C6;">
+	             ${SOS.stTitle}
+	             <c:if test="${SOS.postCheck eq 'true' }">
+	             [처리 완료된 글]
+	             </c:if></a></td>
 	             <td>${SOS.uId}</td>
 	             <td>${SOS.stBdate}</td>
 	             <td>${SOS.stMdate}</td>

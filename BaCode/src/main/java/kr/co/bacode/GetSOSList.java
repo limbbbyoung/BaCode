@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
@@ -35,10 +36,6 @@ public class GetSOSList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		        // 거래 완료 버튼을 위한 파라미터값 받아오기
-				//String strSuccessNum = request.getParameter("successNum");
-		        //int successNum = Integer.parseInt(strSuccessNum);
-		        //request.setAttribute("successNum", successNum);
 		        // 페이징 처리
 				String strPageNum = request.getParameter("pageNum");
 				// 2. pageNum이 안 들어왔을때 자동으로 1이 getBoardList에 들어가도록 조치해주세요.

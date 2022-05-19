@@ -188,4 +188,33 @@ public class SOSDAO {
 			}  return success;
 		} // SOSSuccessUpdate 종료지점
 
+		
+		/*// getSOSPostCheck
+		public Boolean getSOSPostCheck(int stNum) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			Boolean checkNum = false;
+			try {
+				con = ds.getConnection();
+				String sql = "SELECT (postcheck) FROM sosTbl WHERE st_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, stNum);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					con.close();
+					pstmt.close();
+					rs.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return checkNum;
+		} // getSOSPostCheck 종료지점*/
 }
