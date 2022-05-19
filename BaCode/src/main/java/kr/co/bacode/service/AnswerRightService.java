@@ -12,9 +12,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 		request.setCharacterEncoding("utf-8");
 		String answer = request.getParameter("answer");
 		if (answer.equals("helloWorld")) {
-			response.sendRedirect("/BaCode/userInsertForm");
-		} else {
-			response.sendRedirect("http://localhost:52525/BaCode/user/noDv.jsp");
-		}
+			request.setAttribute("answer", answer);
+		} 
 	}
 }

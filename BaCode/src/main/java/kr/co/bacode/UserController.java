@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.bacode.domain.userDAO;
+import kr.co.bacode.service.AnswerRightService;
 import kr.co.bacode.service.DvCheckService;
 import kr.co.bacode.service.IUserService;
 import kr.co.bacode.service.UserInsertFormService;
@@ -68,6 +69,10 @@ public class UserController extends HttpServlet {
 			sv = new DvCheckService();
 			sv.execute(request, response);
 			ui = "/user/dvCheck.jsp";
+		} else if(uri.equals("/BaCode/answerRight.do")) {
+			sv = new AnswerRightService();
+			sv.execute(request, response);
+			ui = "/user/userInsertForm.jsp";
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
