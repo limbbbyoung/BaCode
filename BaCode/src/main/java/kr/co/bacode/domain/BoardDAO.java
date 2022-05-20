@@ -30,6 +30,7 @@ public class BoardDAO {
 		}
 		return bdao;
 	}
+	
 	// 게시판 글 등록 
 	public void insertBoard(String uId, String title, String content, String catego) {
 		Connection con = null;
@@ -95,6 +96,7 @@ public class BoardDAO {
 		}
 		return boardList;
 	}
+	
 	// Update 기능을 수행하는 소스코드
 	public void boardUpdate(String title, String content, String catego, int postNum) {
 		Connection con = null;

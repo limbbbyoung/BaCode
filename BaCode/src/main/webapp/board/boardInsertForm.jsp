@@ -33,7 +33,7 @@
 			     <form action="http://localhost:52525/BaCode/boardInsert" method="post">
 					   <div class="Categori">
 				       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="categori">
-						  <option selected>Categori</option>
+						  <option selected disabled>Categori</option>
 						  <option value="노트북">노트북</option>
 						  <option value="마우스">마우스</option>
 						  <option value="키보드">키보드</option>
