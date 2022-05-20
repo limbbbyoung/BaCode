@@ -14,6 +14,7 @@ import kr.co.bacode.service.AnswerRightService;
 import kr.co.bacode.service.DvCheckService;
 import kr.co.bacode.service.GetUserDetailService;
 import kr.co.bacode.service.IUserService;
+import kr.co.bacode.service.MainSearchService;
 import kr.co.bacode.service.UserIdFormService;
 import kr.co.bacode.service.UserIdPwService;
 import kr.co.bacode.service.UserInsertService;
@@ -66,7 +67,7 @@ public class UserController extends HttpServlet {
 		} else if(uri.equals("/BaCode/userLoginCheck.do")) {
 			sv = new UserLoginCheckService();
 			sv.execute(request, response);
-			ui = "/user/mainSearch.jsp";
+			ui = "/mainSearch.do";
 		} else if(uri.equals("/BaCode/dvCheck.do")) {
 			sv = new DvCheckService();
 			sv.execute(request, response);
@@ -103,6 +104,10 @@ public class UserController extends HttpServlet {
 			sv = new UserIdFormService();
 			sv.execute(request, response);
 			ui = "/user/userIdsearch.jsp";
+		} else if(uri.equals("/BaCode/mainSearch.do")) {
+			sv = new MainSearchService();
+			sv.execute(request, response);
+			ui = "/user/mainSearch.jsp";
 		}
 
 		

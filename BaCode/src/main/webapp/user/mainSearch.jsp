@@ -57,8 +57,8 @@
 			<input type="submit" value="검색">
 			</form>
 			<br/>
-		    <a href="/BaCode/getBoardList"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">등록된상품보러가기</button></a><br/><br/>
-			<a href="/BaCode/boardInsertForm"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">상품등록하기</button></a>
+		    <a href="/BaCode/getBoardList.board"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">등록된상품보러가기</button></a><br/><br/>
+			<a href="/BaCode/boardInsertForm.board"><button class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">상품등록하기</button></a>
 		</div>
 		<div class="col-md-3">.col-md-3</div>
 	</div>

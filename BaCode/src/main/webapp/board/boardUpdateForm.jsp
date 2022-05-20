@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/BaCode/boardUpdate" method="post">
+	<form action="/BaCode/boardUpdate.board" method="post">
 	제목 : <input type="text" name="title" value="${board.title }"/> <br/>
 	카테고리 : <input type="text" name="catego" value="${board.catego}"/>
 	작성자 : <input type="text" name="uId" value="${board.uId }" readonly/> <br/>
