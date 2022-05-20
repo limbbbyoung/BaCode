@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
+import kr.co.bacode.domain.ManagerDAO;
 import kr.co.bacode.domain.PickDAO;
 import kr.co.bacode.domain.PickVO;
 

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.co.bacode.domain.ManagerDAO;
+import kr.co.bacode.domain.ManagerVO;
 import kr.co.bacode.domain.userDAO;
 import kr.co.bacode.domain.userVO;
 
@@ -30,10 +32,18 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	
 	if(dbId != null && formId.equals(dbId)) {
 		if(formPw.equals(dbPw)) {
-			reUrl = "http://localhost:52525/BaCode/user/mainSearch.jsp";
 			HttpSession session = request.getSession();
 			session.setAttribute("s_id", formId);
-
+			
+			// 운영자전용 페이지로 접속되는 로직
+			ManagerDAO mdao = ManagerDAO.getInstance();
+			ManagerVO manager = mdao.getManagerDetail(dbId);
+			System.out.println(manager);
+			if(!manager.equals(null)) {
+				// 운영자 전용 페이지로 넘어가라.
+				reUrl = "http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp";
+				request.setAttribute("reUrl", reUrl);
+			}
 		} else { 
 			loginPwFail = "pw";
 			request.setAttribute("loginPwFail", loginPwFail);

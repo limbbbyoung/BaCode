@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import kr.co.bacode.domain.ManagerDAO;
+import kr.co.bacode.domain.ManagerVO;
 import kr.co.bacode.domain.userDAO;
 import kr.co.bacode.service.AnswerRightService;
 import kr.co.bacode.service.DvCheckService;
