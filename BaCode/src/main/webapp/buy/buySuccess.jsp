@@ -18,7 +18,7 @@
 		<input type="hidden" value="${s_id }" name="s_id">
 	</form>
 	</c:if>
-	<a href="http://localhost:52525/BaCode/getBoardList"><button>판매 목록 보러가기</button></a>
+	<a href="/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
 	<c:if test="${sessionScope.s_id eq buy.uId }">
 	<form action="/BaCode/getBuyList" method="get">
 		<input type="submit" value="구매목록 보러가기">

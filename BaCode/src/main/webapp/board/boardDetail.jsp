@@ -19,7 +19,7 @@
 	픽2 : ${pick } <br/>
 	구매 : ${buy }
 	<p>
-	<form action="/BaCode/boardUpdateForm" method="post">
+	<form action="/BaCode/boardUpdateForm.board" method="post">
 	<input type="hidden" value="${board.postNum }" name="postnum">
 	카테고리 : <input type="text" value="${board.catego }">
 	글 제목<input type="text" style="width:300px;height:25px;" value="${board.title }"><br/>
@@ -35,7 +35,7 @@
 	<input type="hidden" value="${s_id }" name="s_id">
 	<input type="submit" value="구매하기">
 	</form>
-	<form action="/BaCode/boardDelete" method="post">
+	<form action="/BaCode/boardDelete.board" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="submit" value="삭제하기">
 	</form>
