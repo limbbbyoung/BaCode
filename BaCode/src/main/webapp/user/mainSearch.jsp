@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:choose>
+<c:when test="${reUrl ne null }">
+<% response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp"); %>
+</c:when>
 <c:when test="${loginIdFail eq 'id'}">
 <% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>
 </c:when>
@@ -123,7 +126,7 @@
 </head>
 <body>
 <div class="header">
-        <h3>로고 들어갈 자리(추가)</h3> <!-- 코드 추가 -->
+        <h3>로고 들어갈 자리(추가) 계정 : ${reUrl }</h3> <!-- 코드 추가 -->
 <a href="/BaCode/userLogout.do"><button class="btn" id="btn-outlined">로그아웃</button></a> <!-- 1.id 선택자 추가, 2.스타일 프로퍼티 css로 옮겼습니다. -->
 <a href="/BaCode/getUserDetail.do"><button class="btn" id="btn-filed">내정보</button></a> <!-- id 선택자 추가 -->
 </div>

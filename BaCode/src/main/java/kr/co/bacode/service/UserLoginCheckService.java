@@ -39,11 +39,16 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 			ManagerDAO mdao = ManagerDAO.getInstance();
 			ManagerVO manager = mdao.getManagerDetail(dbId);
 			System.out.println(manager);
-			if(!manager.equals(null)) {
+			String managerId = manager.getuId();
+			String notManager = "운영자가 아님";
+			if(managerId == null) {
+				managerId = notManager;
+			}
+			if(!managerId.equals(notManager)) {
 				// 운영자 전용 페이지로 넘어가라.
 				reUrl = "http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp";
 				request.setAttribute("reUrl", reUrl);
-			}
+			} 
 		} else { 
 			loginPwFail = "pw";
 			request.setAttribute("loginPwFail", loginPwFail);
