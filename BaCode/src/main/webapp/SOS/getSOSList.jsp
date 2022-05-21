@@ -68,5 +68,8 @@
 		  </ul>
 	</nav>
     <a class="btn" href="http://localhost:52525/BaCode/user/mainSearch.jsp" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">홈으로</a>
+    <c:if test="${managerId ne null}">
+	<a class="btn" href="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
+	</c:if>
 </body>
 </html>

@@ -66,5 +66,8 @@
 	</nav>
     <c:if test="${sessionScope.s_id ne null }"><a href="/BaCode/boardInsertForm.board"><button class="btn btn-success">글 쓰기</button></a></c:if>
     <a href="http://localhost:52525/BaCode/mainSearch" ><button>홈으로</button></a>
+    <c:if test="${managerId ne null}">
+	<a class="btn" href="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
+	</c:if>
 </body>
 </html>

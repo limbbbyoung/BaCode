@@ -43,6 +43,8 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 			String notManager = "운영자가 아님";
 			if(managerId == null) {
 				managerId = notManager;
+			} else { 
+				session.setAttribute("managerId", managerId);
 			}
 			if(!managerId.equals(notManager)) {
 				// 운영자 전용 페이지로 넘어가라.
