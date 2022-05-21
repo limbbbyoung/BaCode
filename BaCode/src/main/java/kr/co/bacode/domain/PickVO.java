@@ -7,6 +7,7 @@ public class PickVO {
 	private Date pkBdate;
 	private int postNum;
 	private String uId;
+	private String pkTitle;
 	public int getPkNum() {
 		return pkNum;
 	}
@@ -31,11 +32,16 @@ public class PickVO {
 	public void setuId(String uId) {
 		this.uId = uId;
 	}
+	public String getPkTitle() {
+		return pkTitle;
+	}
+	public void setPkTitle(String pkTitle) {
+		this.pkTitle = pkTitle;
+	}
 	@Override
 	public String toString() {
-		return "PickVO [pkNum=" + pkNum + ", pkBdate=" + pkBdate + ", postNum=" + postNum + ", uId=" + uId + "]";
+		return "PickVO [pkNum=" + pkNum + ", pkBdate=" + pkBdate + ", postNum=" + postNum + ", uId=" + uId
+				+ ", pkTitle=" + pkTitle + "]";
 	}
-	
-	
 
 }

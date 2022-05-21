@@ -31,15 +31,16 @@ public class PickDAO {
 		return pdao;
 	}
 	
-	public void insertPick (int postNum, String uId) {
+	public void insertPick (int postNum, String uId, String title) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = ds.getConnection();
-			String sql = "INSERT INTO pickTbl(postnum, uid) VALUES(?, ?)";
+			String sql = "INSERT INTO pickTbl(postnum, uid, pick_title) VALUES(?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, postNum);
 			pstmt.setString(2, uId);
+			pstmt.setString(3, title);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,15 +55,16 @@ public class PickDAO {
 	} // insertPick 종료지점
 	
 	// pick 테이블 전체 조회
-	public List<PickVO> getPickList() {
+	public List<PickVO> getPickList(String uId) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<PickVO> pickList = new ArrayList<>();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM pickTbl ORDER BY pk_num DESC";
+			String sql = "SELECT * FROM pickTbl WHERE uid= ? ORDER BY pk_num DESC";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, uId);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -71,6 +73,7 @@ public class PickDAO {
 				pick.setPkBdate(rs.getDate(2));
 				pick.setPostNum(rs.getInt(3));
 				pick.setuId(rs.getString(4));
+				pick.setPkTitle(rs.getString(5));
 				pickList.add(pick);
 			}
 		} catch(Exception e) {
@@ -105,6 +108,7 @@ public class PickDAO {
 				pick.setPkBdate(rs.getDate(2));
 				pick.setPostNum(rs.getInt(3));
 				pick.setuId(rs.getString(4));
+				pick.setPkTitle(rs.getString(5));
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

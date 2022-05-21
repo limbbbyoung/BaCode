@@ -52,9 +52,10 @@ public class Pick extends HttpServlet {
 		
 		String pickUid = request.getParameter("pickId");
 		String strPickNum = request.getParameter("postNum");
+		String title = request.getParameter("title");
 		int pickNum = Integer.parseInt(strPickNum);
 		PickDAO dao = PickDAO.getInstance();
-		dao.insertPick(pickNum, pickUid);
+		dao.insertPick(pickNum, pickUid, title);
 		
 		BoardVO board = dao1.getBoardDetail(pickNum);
 		request.setAttribute("board" , board);
