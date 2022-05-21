@@ -10,8 +10,14 @@
 </head>
 <body>
    <script type="text/javascript">
-     alert('해당 검색어는 지원하지 않습니다.');
-     window.location.href = "http://localhost:52525/BaCode/user/mainSearch.jsp"
+     let managerId = "${managerId}";
+     if(managerId == ""){
+    	 alert('해당 검색어는 지원하지 않습니다.');
+    	 window.location.href = "http://localhost:52525/BaCode/user/mainSearch.jsp"
+     } else if(managerId != null){
+         alert('해당 검색어는 지원하지 않습니다.');
+         window.location.href = "http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp"
+     } 
    </script> 
 </body>
 </html>

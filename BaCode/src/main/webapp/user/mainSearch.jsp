@@ -3,7 +3,11 @@
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:choose>
 <c:when test="${reUrl ne null }">
-<% response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp"); %>
+<% 
+Object objManagerId = session.getAttribute("managerId");
+String managerId = (String)objManagerId;
+System.out.println("매니저 아이디 : " + managerId);
+response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp"); %>
 </c:when>
 <c:when test="${loginIdFail eq 'id'}">
 <% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>

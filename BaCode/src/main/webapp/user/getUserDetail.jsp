@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
@@ -60,6 +61,10 @@
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
 	<input type="submit" value="홈으로" />
 	</form>
-	
+	<c:if test="${managerId ne null}">
+	<form action="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" method="post">
+	<input type="submit" value="관리자 홈으로" />
+	</form>
+	</c:if>
 </body>
 </html>
