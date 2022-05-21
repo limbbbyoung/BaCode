@@ -88,18 +88,19 @@ public class BuyDAO {
 		return buy;
 	}
 	// 게시판에서 구매목록 불러오는 메서드
-	public List<BuyVO> getBuyList(String uId) {
+	public List<BuyVO> getBuyList(String uId, int pageNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<BuyVO> buyList = new ArrayList<>();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM buyTbl WHERE uid= ? ORDER BY buyNum DESC";
+			int limitNum = (pageNum -1)*10;
+			String sql = "SELECT * FROM buyTbl WHERE uid= ? ORDER BY buyNum DESC limit ?, 10";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, uId);
-			rs = pstmt.executeQuery();
-			
+			pstmt.setInt(2, limitNum);
+			rs = pstmt.executeQuery();		
 			while(rs.next()) {
 				BuyVO buy = new BuyVO();
 				buy.setBuyNum(rs.getInt(1));
@@ -121,5 +122,34 @@ public class BuyDAO {
 			}
 		}
 		return buyList;
+	}
+	// 내 구매 게시글의 갯수를 가져오는 메서드
+	public int getBuyCount(String uId) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int buyCount = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT count(*) FROM buyTbl WHERE uid=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, uId);
+			rs = pstmt.executeQuery();	
+			
+			if(rs.next()) {
+				buyCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return buyCount;
 	}
 }

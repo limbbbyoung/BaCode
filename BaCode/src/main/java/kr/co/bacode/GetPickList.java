@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.co.bacode.domain.BoardDAO;
-import kr.co.bacode.domain.BoardVO;
+import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.PickDAO;
 import kr.co.bacode.domain.PickVO;
+
 
 /**
  * Servlet implementation class GetPickList
@@ -37,15 +37,25 @@ public class GetPickList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String uId = (String)session.getAttribute("s_id");
-		String strPostNum = request.getParameter("postNum");
-		int postNum = Integer.parseInt(strPostNum);
+		// String strPostNum = request.getParameter("postNum");
+		// int postNum = Integer.parseInt(strPostNum);
+		String strPageNum = request.getParameter("pageNum");
+		int pageNum = 1;
+		if(strPageNum != null) {
+		    pageNum = Integer.parseInt(strPageNum);
+		} 
 		PickDAO dao = PickDAO.getInstance();
-		List<PickVO> pickList = dao.getPickList(uId);
+		int pickCount = dao.getPickCount(uId);
+	    BoardButtonDTO buttons = new BoardButtonDTO(pickCount, pageNum); 
+	    request.setAttribute("buttons", buttons);
+	    
+	    List<PickVO> pickList = dao.getPickList(uId, pageNum);
 		System.out.println(pickList);
+		request.setAttribute("pickList", pickList);
 		
-		BoardDAO boardDao = BoardDAO.getInstance();
-		BoardVO board = boardDao.getBoardDetail(postNum);
-		request.setAttribute("board" , board);
+		//BoardDAO boardDao = BoardDAO.getInstance();
+		//BoardVO board = boardDao.getBoardDetail(postNum);
+		//request.setAttribute("board" , board);
 		request.setAttribute("pickList", pickList);
 		RequestDispatcher dp = request.getRequestDispatcher("/pick/getPickList.jsp");
 		dp.forward(request, response);

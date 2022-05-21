@@ -54,17 +54,19 @@ public class PickDAO {
 		}
 	} // insertPick 종료지점
 	
-	// pick 테이블 전체 조회
-	public List<PickVO> getPickList(String uId) {
+	// 자기 찜목록 조회 기능
+	public List<PickVO> getPickList(String uId, int pageNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<PickVO> pickList = new ArrayList<>();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM pickTbl WHERE uid= ? ORDER BY pk_num DESC";
+			int limitNum = (pageNum -1)*10;
+			String sql = "SELECT * FROM pickTbl WHERE uid= ? ORDER BY pk_num DESC limit ?, 10";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, uId);
+			pstmt.setInt(2, limitNum);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -122,5 +124,34 @@ public class PickDAO {
 			}
 		}
 		return pick;
+	}
+	// 내 찜 게시글의 갯수를 가져오는 메서드
+	public int getPickCount(String uId) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int pickCount = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT count(*) FROM pickTbl WHERE uid=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, uId);
+			rs = pstmt.executeQuery();	
+			
+			if(rs.next()) {
+				pickCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return pickCount;
 	}
 }

@@ -8,6 +8,15 @@
 <style>
 	#header { height : 150px; }
 	img{width : 150px; height : 150px;}
+	#btn-filed {
+        display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+    }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -56,7 +65,14 @@
 	
 	<hr/>
 	<!-- <a href="http://localhost:8181/BaCode/boardList"><buttion>목록으로</buttion></a> -->
-	
+	<form action="/BaCode/getPickList" method="get">
+		<input type="hidden" name="uId" value="${user.uId }"><br/>
+		<button class="btn" id="btn-filed">찜목록으로 </button>
+	</form>
+	<form action="/BaCode/getBuyList" method="get">
+		<input type="hidden" name="uId" value="${user.uId }"><br/>
+		<button class="btn" id="btn-filed">구매목록으로 </button>
+	</form>
 	<form action="http://localhost:52525/BaCode/user/mainSearch.jsp" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
 	<input type="submit" value="홈으로" />

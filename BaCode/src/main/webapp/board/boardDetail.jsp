@@ -45,7 +45,7 @@
 		<input type="submit" value="찜하기">
 		<input type="hidden" value="${board.postNum}" name="postNum">
 		<input type="hidden" value="${s_id }" name="pickId">
-		<input tpye="hidden" value=${board.title } name="title">
+		<input type="hidden" value="${board.title }" name="title">
 	</form>
 
 	<c:if test="${sessionScope.s_id eq buy.uId }">
