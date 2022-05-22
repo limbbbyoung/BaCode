@@ -59,5 +59,8 @@
 		  </ul>
 	</nav>
     <a href="http://localhost:52525/BaCode/mainSearch" ><button class="btn" id="btn-filed">홈으로</button></a>
+    <c:if test="${managerId ne null}">
+	<a class="btn" href="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" role="button" aria-disabled="false" id="btn-filed">관리자 홈으로</a>
+	</c:if>
 </body>
 </html>

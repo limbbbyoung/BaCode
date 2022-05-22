@@ -1,4 +1,4 @@
-package kr.co.bacode;
+package kr.co.bacode.controller;
 
 import java.io.IOException;
 
