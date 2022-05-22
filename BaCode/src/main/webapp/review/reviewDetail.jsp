@@ -21,7 +21,8 @@
 	<input type="hidden" value="${review.rvNum }" name="rvNum">
 	<input type="submit" value="삭제하기">
 	</form>
-	<a href="http://localhost:52525/BaCode/getBoardList"><button>판매 목록 보러가기</button></a>
+	<a href="http://localhost:52525/BaCode/getBoardList"><button>판매목록으로</button></a>
+	<a href="http://localhost:52525/BaCode/getReviewList"><button>리뷰목록으로</button></a>
 	</p>
 </body>
 </html>

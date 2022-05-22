@@ -1,6 +1,7 @@
 package kr.co.bacode;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
 import kr.co.bacode.domain.BuyDAO;
@@ -38,14 +40,25 @@ public class GetBuyList extends HttpServlet {
 		HttpSession session = request.getSession();
 		String uId = (String)session.getAttribute("s_id");
 		String strPostNum = request.getParameter("postNum");
-		int postNum = Integer.parseInt(strPostNum);
+		//int postNum = Integer.parseInt(strPostNum);
+		String strPageNum = request.getParameter("pageNum");
+		int pageNum = 1;
+		if(strPageNum != null) {
+		    pageNum = Integer.parseInt(strPageNum);
+		} 
 		BuyDAO dao = BuyDAO.getInstance();
-		List<BuyVO> buyList = dao.getBuyList(uId);
+		int buyCount = dao.getBuyCount(uId);
+	    BoardButtonDTO buttons = new BoardButtonDTO(buyCount, pageNum); 
+	    request.setAttribute("buttons", buttons);
+	    
+	    List<BuyVO> buyList = dao.getBuyList(uId, pageNum);
 		System.out.println(buyList);
 		
+		
 		BoardDAO boardDao = BoardDAO.getInstance();
-		BoardVO board = boardDao.getBoardDetail(postNum);
-		request.setAttribute("board" , board);
+		// BoardVO board = boardDao.getBoardDetail(postNum);
+
+		// request.setAttribute("board" , board);
 		request.setAttribute("buyList", buyList);
 		RequestDispatcher dp = request.getRequestDispatcher("/buy/getBuyList.jsp");
 		dp.forward(request, response);

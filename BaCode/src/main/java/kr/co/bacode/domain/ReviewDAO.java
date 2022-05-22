@@ -55,17 +55,18 @@ public class ReviewDAO {
 	} // insertReview 끝나는 지점
 	
 	// 리뷰 리스트 보기
-	public List<ReviewVO> getReviewList() {
+	public List<ReviewVO> getReviewList(int pageNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<ReviewVO> reviewList = new ArrayList<>();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM reviewTbl ORDER BY rv_num DESC";
+			int limitNum = (pageNum -1)*10;
+			String sql = "SELECT * FROM reviewTbl ORDER BY rv_num DESC limit ?, 10";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, limitNum);
 			rs = pstmt.executeQuery();
-			
 			while(rs.next()) {
 				ReviewVO review = new ReviewVO();
 				review.setRvNum(rs.getInt(1));
@@ -171,4 +172,32 @@ public class ReviewDAO {
 		}
 		return review;
 	} // review 보기 기능 종료
+	// 전체 리뷰 게시글의 갯수를 가져오는 메서드
+	public int getReviewCount() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int reviewCount = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT count(*) FROM reviewTbl";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();	
+
+			if(rs.next()) {
+				reviewCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return reviewCount;
+	}
 }

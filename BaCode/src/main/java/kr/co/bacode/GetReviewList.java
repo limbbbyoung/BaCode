@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
 import kr.co.bacode.domain.ReviewDAO;
 import kr.co.bacode.domain.ReviewVO;
+import kr.co.bacode.domain.SOSDAO;
+import kr.co.bacode.domain.SOSVO;
 
 /**
  * Servlet implementation class GetReviewList
@@ -34,8 +37,18 @@ public class GetReviewList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 페이징 처리
+		String strPageNum = request.getParameter("pageNum");
+		int pageNum = 1;
+		if(strPageNum != null) {
+		    pageNum = Integer.parseInt(strPageNum);
+		} 
 		ReviewDAO dao = ReviewDAO.getInstance();
-		List<ReviewVO> reviewList = dao.getReviewList();
+		int reviewCount = dao.getReviewCount();
+	    BoardButtonDTO buttons = new BoardButtonDTO(reviewCount, pageNum); 
+	    request.setAttribute("buttons", buttons);
+	    
+	    List<ReviewVO> reviewList = dao.getReviewList(pageNum);
 		System.out.println(reviewList);
 		request.setAttribute("reviewList", reviewList);
 		RequestDispatcher dp = request.getRequestDispatcher("/review/getReviewList.jsp");
