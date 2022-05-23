@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.bacode.domain.SOSDAO;
 import kr.co.bacode.domain.SOSVO;
 
-public class getSOSDetailService implements ISOSService{
+public class GetSOSDetailService implements ISOSService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,8 +21,6 @@ public class getSOSDetailService implements ISOSService{
 		
 		SOSVO SOS = sdao.getSOSDetail(stNum);
 		request.setAttribute("SOS" , SOS);
-		RequestDispatcher dp = request.getRequestDispatcher("/SOS/SOSDetail.jsp");
-		dp.forward(request, response);
 	}
 
 }

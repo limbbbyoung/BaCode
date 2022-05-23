@@ -56,7 +56,7 @@
 		<input type="hidden" value="${s_id }" name="s_id">
 	</form>
 	</c:if>
-	<form action="/BaCode/SOSInsertForm" method="post">
+	<form action="/BaCode/SOSInsertForm.SOS" method="post">
 	<input type="hidden" value=${board.postNum } name="postNum">
 	<input type="hidden" value=${s_id } name="s_id">
 	<button type="submit" class="btn btn-success">신고하기</button>

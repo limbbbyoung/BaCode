@@ -14,7 +14,7 @@
 <body>
 	${SOS }</br>
 	세션아이디 : ${s_id }</br>
-	<form action="/BaCode/SOSUpdateForm" method="post">
+	<form action="/BaCode/SOSSuccess.SOS" method="post">
 	<input type="hidden" value="${SOS.stNum }" name="stnum">
 	신고글 제목 : ${SOS.stTitle }<br/> 
 	신고유저 : ${SOS.uId }<br/> 
@@ -24,11 +24,11 @@
 	<input type="submit" value="수정하기">
 	</form>
 
-	<form action="/BaCode/SOSSuccess" method="post">
+	<form action="/BaCode/SOSSuccess.SOS" method="post">
 	<input type="hidden" value="${SOS.stNum }" name="stNum">
 	<input type="submit" value="처리완료">
 	</form>
 	
-	<a href="http://localhost:52525/BaCode/getSOSList"><button>신고 목록 보러가기</button></a>
+	<a href="http://localhost:52525/BaCode/getSOSList.SOS"><button>신고 목록 보러가기</button></a>
 </body>
 </html>

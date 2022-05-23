@@ -12,7 +12,7 @@ import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.SOSDAO;
 import kr.co.bacode.domain.SOSVO;
 
-public class getSOSListService implements ISOSService {
+public class GetSOSListService implements ISOSService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,9 +36,6 @@ public class getSOSListService implements ISOSService {
 	    
 		List<SOSVO> SOSList = sdao.getSOSList(pageNum);
 		request.setAttribute("SOSList", SOSList);
-		
-		RequestDispatcher dp = request.getRequestDispatcher("/SOS/getSOSList.jsp");
-		dp.forward(request, response);
 		
 	}
 

@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.bacode.SOSService.ISOSService;
-import kr.co.bacode.SOSService.getSOSDetailService;
-import kr.co.bacode.SOSService.getSOSListService;
+import kr.co.bacode.SOSService.SOSInsertFormService;
+import kr.co.bacode.SOSService.SOSInsertService;
+import kr.co.bacode.SOSService.SOSSuccessService;
+import kr.co.bacode.SOSService.GetSOSDetailService;
+import kr.co.bacode.SOSService.GetSOSListService;
 import kr.co.bacode.domain.SOSDAO;
 import kr.co.bacode.domain.userDAO;
 
@@ -48,38 +51,29 @@ public class SOSController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String uri = request.getRequestURI();
 		String ui = null;
-		SOSDAO sdao = sdao.getInstance();
 		ISOSService sv = null;
 		
 		if(uri.equals("/BaCode/getSOSList.SOS")) {
-			sv = new getSOSListService();
+			sv = new GetSOSListService();
 			sv.execute(request, response);
 			ui = "/SOS/getSOSList.jsp";
 		} else if (uri.equals("/BaCode/getSOSDetail.SOS")) {
-			sv = new getSOSDetailService();
+			sv = new GetSOSDetailService();
 			sv.execute(request, response);
 			ui = "/SOS/SOSDetail.jsp?stNum=" + request.getParameter("stNum");
-		} else if(uri.equals("/BaCode/boardInsertForm.board")) {
-			sv = new BoardInsertFormService();
+		} else if(uri.equals("/BaCode/SOSInsertForm.SOS")) {
+			sv = new SOSInsertFormService();
 			sv.execute(request, response);
-			ui = "/board/boardInsertForm.jsp";
-		} else if(uri.equals("/BaCode/boardInsert.board")) {
-			sv = new BoardInsertService();
+			ui = "/SOS/SOSInsertForm.jsp";
+		} else if(uri.equals("/BaCode/SOSInsert.SOS")) {
+			sv = new SOSInsertService();
 			sv.execute(request, response);
-			ui = "getBoardList.board";
-		} else if(uri.equals("/BaCode/boardUpdateForm.board")) {
-			sv = new BoardUpdateFormService();
+			ui = "/BaCode/SOS/SOSSuccess.jsp";
+		} else if(uri.equals("/BaCode/SOSSuccess.SOS")) {
+			sv = new SOSSuccessService();
 			sv.execute(request, response);
-			ui = "/board/boardUpdateForm.jsp";
-		} else if(uri.equals("/BaCode/boardUpdate.board")) {
-			sv = new BoardUpdateService();
-			sv.execute(request, response);
-			ui = "getBoardDetail.board?postnum=" + request.getParameter("postnum");
-		} else if(uri.equals("/BaCode/boardDelete.board")) {
-			sv = new BoardDeleteService();
-			sv.execute(request, response);
-			ui = "getBoardList.board";
-		}
+			ui = "/BaCode/getSOSList.SOS";
+		} 
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
 		dp.forward(request, response);

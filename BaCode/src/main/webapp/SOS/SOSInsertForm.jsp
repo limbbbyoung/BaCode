@@ -31,7 +31,7 @@
 		      <h1>신고글 작성</h1>
 			     <hr/>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
-			     <form action="http://localhost:52525/BaCode/SOSInsert" method="post">
+			     <form action="http://localhost:52525/BaCode/SOSInsert.SOS" method="post">
 			     <input type="hidden" value=${postNum } name="postNum">
 			     제목 : <input type="text" name="stTitle" placeholder="제목을 입력해주세요."><br/>
 			     작성자 : ${uId }<br/>

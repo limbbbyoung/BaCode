@@ -138,7 +138,7 @@
 		          <a class="nav-link active" aria-current="page" href="/BaCode/getUserDetail.do"><button class="btn" id="btn-filed">내정보</button></a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="/BaCode/getSOSList"><button class="btn" id="btn-filed">신고글 목록</button></a>
+		          <a class="nav-link active" aria-current="page" href="/BaCode/getSOSList.SOS"><button class="btn" id="btn-filed">신고글 목록</button></a>
 		        </li>
 		      </ul>
 		    </div>
