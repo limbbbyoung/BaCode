@@ -12,7 +12,7 @@
 </style>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 상세 페이지</title>
 </head>
 <body>
 	${board }</br>
@@ -30,7 +30,7 @@
 	수정날짜 : <input type="text" value="${board.mdate }"><br/>
 	<input type="submit" value="수정하기">
 	</form>
-	<form action="/BaCode/buyInsert" method="post">
+	<form action="/BaCode/buyInsert.board" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="hidden" value="${board.title }" name="title"> 
 	<input type="hidden" value="${s_id }" name="s_id">
@@ -40,7 +40,7 @@
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="submit" id="del" onclick="test()" value="삭제하기">
 	</form>
-	<a href="http://localhost:52525/BaCode/getBoardList"><button>판매 목록 보러가기</button></a>
+	<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
 	</p>
 	<form action="/BaCode/pick" method="post">
 		<input type="submit" value="찜하기">

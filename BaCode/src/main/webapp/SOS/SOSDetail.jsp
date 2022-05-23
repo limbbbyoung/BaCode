@@ -21,7 +21,6 @@
 	<textarea cols="50" rows="20">${SOS.stContent }</textarea><br/>
 	신고글 작성날짜 : ${SOS.stBdate } <br/>
 	수정날짜 : ${SOS.stMdate } <br/>
-	<input type="submit" value="수정하기">
 	</form>
 
 	<form action="/BaCode/SOSSuccess.SOS" method="post">
