@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.bacode.domain.BoardDAO;
+import kr.co.bacode.domain.BoardVO;
 import kr.co.bacode.domain.ReviewDAO;
 import kr.co.bacode.domain.ReviewVO;
 
@@ -34,8 +36,12 @@ public class GetReviewDetail extends HttpServlet {
 		String strReviewNum = request.getParameter("rvNum");
 		int reviewNum = Integer.parseInt(strReviewNum);
 		System.out.println("조회된 번호 : " + reviewNum);  
-		ReviewDAO dao = ReviewDAO.getInstance();
-		ReviewVO review = dao.getReviewDetail(reviewNum);
+		ReviewDAO rdao = ReviewDAO.getInstance();
+		ReviewVO review = rdao.getReviewDetail(reviewNum);
+		BoardDAO dao = BoardDAO.getInstance();
+		BoardVO board = dao.getBoardDetail(reviewNum);
+		request.setAttribute("board" , board);
+		System.out.println(board);
 		request.setAttribute("review" , review);
 		RequestDispatcher dp = request.getRequestDispatcher("/review/reviewDetail.jsp");
 		dp.forward(request, response);
