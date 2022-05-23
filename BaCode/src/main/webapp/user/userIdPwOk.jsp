@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+${no }
 <h2>아이디 : ${user.uId }</h2>
 <h2>비밀번호 : ${user.uPw }</h2>
 <a href="/BaCode/userLogin.do"><button>로그인하러가기</button></a>

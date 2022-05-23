@@ -28,7 +28,9 @@
 	작성날짜 : <input type="text" value="${board.bdate }">조회수 : ${board.hit }<br/>
 	<textarea cols="50" rows="20">${board.content }</textarea><br/>
 	수정날짜 : <input type="text" value="${board.mdate }"><br/>
-	<input type="submit" value="수정하기">
+	<c:if test="${sessionScope.s_id eq board.uId}">
+		<input type="submit" value="수정하기">
+	</c:if>
 	</form>
 	<form action="/BaCode/buyInsert" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
@@ -36,18 +38,30 @@
 	<input type="hidden" value="${s_id }" name="s_id">
 	<input type="submit" value="구매하기">
 	</form>
-	<form id="deleteSub" action="/BaCode/boardDelete.board" method="post">
-	<input type="hidden" value="${board.postNum }" name="postNum">
-	<input type="submit" id="del" onclick="test()" value="삭제하기">
-	</form>
+	<c:if test="${sessionScope.s_id eq board.uId}">
+		<form id="deleteSub" action="/BaCode/boardDelete.board" method="post">
+			<input type="hidden" value="${board.postNum }" name="postNum">	
+			<input type="submit" id="del" onclick="test()" value="삭제하기">
+		</form>
+	</c:if>
 	<a href="http://localhost:52525/BaCode/getBoardList"><button>판매 목록 보러가기</button></a>
 	</p>
+	<c:if test="${sessionScope.s_id ne pick.uId }">
 	<form action="/BaCode/pick" method="post">
 		<input type="submit" value="찜하기">
 		<input type="hidden" value="${board.postNum}" name="postNum">
 		<input type="hidden" value="${s_id }" name="pickId">
 		<input type="hidden" value="${board.title }" name="title">
 	</form>
+	</c:if>
+	<c:if test="${sessionScope.s_id eq pick.uId }">
+	<form action="/BaCode/pickCancel" method="post">
+		<input type="submit" value="찜하기 취소">
+		<input type="hidden" value="${pick.pkNum}" name="pkNum">
+		<input type="hidden" value="${pick.pkTitle}" name="pickTitle">
+		<input type="hidden" value="${board.postNum }" name="postNum">
+	</form>
+	</c:if>
 
 	<c:if test="${sessionScope.s_id eq buy.uId }">
 	<form action="/BaCode/reviewInsertForm" method="get">

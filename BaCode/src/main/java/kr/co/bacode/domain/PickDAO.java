@@ -154,4 +154,27 @@ public class PickDAO {
 		}
 		return pickCount;
 	}
+	
+	// pick 취소하기 기능
+	public void pickDelete(int pkNum, String pickTitle){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = ds.getConnection();
+			String sql = "DELETE FROM pickTbl WHERE pk_num=? and pick_title=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pkNum);
+			pstmt.setString(2, pickTitle);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // pick 취소 기능구문 종료지점
 }
