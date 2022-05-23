@@ -39,7 +39,7 @@
          <c:forEach var="board" items="${boardList }">
 	          <tr>
 	             <td>${board.postNum}</td>
-	             <td><a href="http://localhost:52525/BaCode/getBoardDetail?postnum=${board.postNum}">${board.title}</a></td>
+	             <td><a href="http://localhost:52525/BaCode/getBoardDetail.board?postnum=${board.postNum}">${board.title}</a></td>
 	             <td>${board.uId}</td>
 	             <td>${board.catego}</td>	             
 	             <td>${board.bdate}</td>

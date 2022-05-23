@@ -14,9 +14,11 @@ import kr.co.bacode.boardservice.BoardInsertFormService;
 import kr.co.bacode.boardservice.BoardInsertService;
 import kr.co.bacode.boardservice.BoardUpdateFormService;
 import kr.co.bacode.boardservice.BoardUpdateService;
+import kr.co.bacode.boardservice.GetBoardCategoList;
 import kr.co.bacode.boardservice.GetBoardDetailService;
 import kr.co.bacode.boardservice.GetBoardListService;
 import kr.co.bacode.boardservice.IBoardService;
+import kr.co.bacode.boardservice.searchWhatService;
 import kr.co.bacode.domain.userDAO;
 
 /**
@@ -52,7 +54,8 @@ public class BoardController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String uri = request.getRequestURI();
 		String ui = null;
-		userDAO dao = userDAO.getInstance();
+		// 현재 페이지에서는 userDAO를 사용하지 않기 때문에 주석처리
+		// userDAO dao = userDAO.getInstance();
 		IBoardService sv = null;
 		
 		if(uri.equals("/BaCode/getBoardList.board")) {
@@ -83,9 +86,15 @@ public class BoardController extends HttpServlet {
 			sv = new BoardDeleteService();
 			sv.execute(request, response);
 			ui = "getBoardList.board";
+		} else if(uri.equals("/BaCode/searchWhat.board")) {
+			sv = new searchWhatService();
+			ui = (String)request.getAttribute("UI");
+			System.out.println(ui);
+			sv.execute(request, response);
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
+		System.out.println("dp : " + dp);
 		dp.forward(request, response);
 	}
 }

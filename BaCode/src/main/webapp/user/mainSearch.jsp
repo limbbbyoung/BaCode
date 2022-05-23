@@ -155,7 +155,7 @@ response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.j
 		    <!-- <div class="col-md-3">.col-md-3</div> 삭제 -->
 		    <!-- <div class="col-md-6"> 삭제 -->
 		    	<img src="${pageContext.request.contextPath}/Images/Logo.jpg" class="img-responsive" alt="">
-			    <form action="/BaCode/searchWhat" method="post" class="search-form"> <!-- class 선택자 추가했습니다. -->
+			    <form action="/BaCode/searchWhat.board" method="post" class="search-form"> <!-- class 선택자 추가했습니다. -->
 				        <input type="text" class="form-control" name="search_name" style="width:750px;height:40px;" placeholder="검색어를 입력하세요." onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"/>
 			    </form>
 			<br/>

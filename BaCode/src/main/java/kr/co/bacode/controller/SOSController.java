@@ -68,11 +68,12 @@ public class SOSController extends HttpServlet {
 		} else if(uri.equals("/BaCode/SOSInsert.SOS")) {
 			sv = new SOSInsertService();
 			sv.execute(request, response);
-			ui = "/BaCode/SOS/SOSSuccess.jsp";
+			ui = "/SOS/SOSSuccess.jsp";
 		} else if(uri.equals("/BaCode/SOSSuccess.SOS")) {
 			sv = new SOSSuccessService();
+			System.out.println("처리완료했습니다.");
 			sv.execute(request, response);
-			ui = "/BaCode/getSOSList.SOS";
+			ui = "/getSOSList.SOS";
 		} 
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);

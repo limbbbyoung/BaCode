@@ -12,7 +12,7 @@
 </style>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 상세 페이지</title>
 </head>
 <body>
 	${board }</br>
@@ -32,7 +32,7 @@
 		<input type="submit" value="수정하기">
 	</c:if>
 	</form>
-	<form action="/BaCode/buyInsert" method="post">
+	<form action="/BaCode/buyInsert.board" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="hidden" value="${board.title }" name="title"> 
 	<input type="hidden" value="${s_id }" name="s_id">
