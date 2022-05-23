@@ -38,7 +38,7 @@ public class GetReviewList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 페이징 처리
-		String strPageNum = request.getParameter("pageNum");
+		/* String strPageNum = request.getParameter("pageNum");
 		int pageNum = 1;
 		if(strPageNum != null) {
 		    pageNum = Integer.parseInt(strPageNum);
@@ -52,7 +52,7 @@ public class GetReviewList extends HttpServlet {
 		System.out.println(reviewList);
 		request.setAttribute("reviewList", reviewList);
 		RequestDispatcher dp = request.getRequestDispatcher("/review/getReviewList.jsp");
-		dp.forward(request, response);
+		dp.forward(request, response); */
 	}
 
 
