@@ -23,7 +23,7 @@
 		      <h1>Review</h1>
 			     <hr/>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
-			     <form action="http://localhost:52525/BaCode/reviewInsert" method="post">
+			     <form action="http://localhost:52525/BaCode/reviewInsert.review" method="post">
 			     <input type="hidden" name="postNum" value="${postNum }">
 				 <input type="hidden" name="selUid" value="${board.uId }">
 				 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">

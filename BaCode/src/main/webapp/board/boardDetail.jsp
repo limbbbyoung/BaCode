@@ -32,7 +32,7 @@
 		<input type="submit" value="수정하기">
 	</c:if>
 	</form>
-	<form action="/BaCode/buyInsert.board" method="post">
+	<form action="/BaCode/buyInsert" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="hidden" value="${board.title }" name="title"> 
 	<input type="hidden" value="${s_id }" name="s_id">
