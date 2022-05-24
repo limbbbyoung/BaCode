@@ -18,7 +18,7 @@ public class GetBoardCategoList implements IBoardService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Controller 처리를 위한 지역 변수 저장
-		String ui;
+		String ui = "";
 		// 페이징 처리
 		String strPageNum = request.getParameter("pageNum");
 		HttpSession session = request.getSession();
@@ -44,21 +44,18 @@ public class GetBoardCategoList implements IBoardService{
 			request.setAttribute("boardList", categoboardList);
 			request.setAttribute("searchWhat", searchWhat);
 			ui = "/board/mouseList.jsp";
-			request.setAttribute("ui", ui);
 		} else if(searchWhat.equals("키보드")) {
 			List<BoardVO> categoboardList = dao.getBoardListCatego(searchWhat ,pageNum);
 			request.setAttribute("boardList", categoboardList);
 			request.setAttribute("searchWhat", searchWhat);
 			ui = "/board/keyboardList.jsp";
-			request.setAttribute("ui", ui);
 		} else if(searchWhat.equals("노트북")) {
 			List<BoardVO> categoboardList = dao.getBoardListCatego(searchWhat ,pageNum);
 			request.setAttribute("boardList", categoboardList);
 			request.setAttribute("searchWhat", searchWhat);
 			ui = "/board/notebookList.jsp";
-			request.setAttribute("ui", ui);
 		} 
-		
+		request.setAttribute("UI", ui);
 	}
 
 }
