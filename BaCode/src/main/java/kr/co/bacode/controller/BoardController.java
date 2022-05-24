@@ -14,7 +14,7 @@ import kr.co.bacode.boardservice.BoardInsertFormService;
 import kr.co.bacode.boardservice.BoardInsertService;
 import kr.co.bacode.boardservice.BoardUpdateFormService;
 import kr.co.bacode.boardservice.BoardUpdateService;
-import kr.co.bacode.boardservice.GetBoardCategoList;
+import kr.co.bacode.boardservice.GetBoardCategoListService;
 import kr.co.bacode.boardservice.GetBoardDetailService;
 import kr.co.bacode.boardservice.GetBoardListService;
 import kr.co.bacode.boardservice.IBoardService;
@@ -92,7 +92,7 @@ public class BoardController extends HttpServlet {
 			ui = (String)request.getAttribute("UI");
 			System.out.println("가져온 주소 : " + ui);
 		} else if(uri.equals("/BaCode/getBoardCategoList.board")) {
-			sv = new searchWhatService();
+			sv = new GetBoardCategoListService();
 			sv.execute(request, response);
 			ui = (String)request.getAttribute("UI");
 			System.out.println("가져온 주소 : " + ui);

@@ -45,9 +45,6 @@
 		</form>
 	</c:if>
 	<a href="http://localhost:52525/BaCode/getBoardList,board"><button>판매 목록 보러가기</button></a>
-	<c:if test="${searchWhat ne null }">
-	 <a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>
-	</c:if>
 	<c:choose>
 	<c:when test="${searchWhat eq '마우스' }">
 	 	<a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>

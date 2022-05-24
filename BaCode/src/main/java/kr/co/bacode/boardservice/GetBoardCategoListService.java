@@ -13,7 +13,7 @@ import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
 
-public class GetBoardCategoList implements IBoardService{
+public class GetBoardCategoListService implements IBoardService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
