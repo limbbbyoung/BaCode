@@ -9,7 +9,7 @@
 <head>
 <style>
 	a {
-	     color : black;
+	     color : #8789C6;
 	     text-decoration-line : none;
 	  }
 	#btn-filed {
@@ -26,9 +26,8 @@
 <title>게시판</title>
 </head>
 <body>
-	    <h1>/reviewList 임시 페이지</h1>
-	    ${reviewList }
-    <table class="table table-primary table-hover">
+	    <h1 style="color: #3E408F;" >리뷰 목록</h1>
+    <table class="table table-hover" style="color : #8789C6;">
        <thead>
            <tr>
               <th>번호</th>
@@ -50,7 +49,6 @@
         </c:forEach>
        </tbody>
     </table>
-        ${buttons }
       <!-- foreach문의 start, end속성을 이용해 숫자를 알맞게 깔아주세요. -->
     <nav aria-label="Page navigation example">
 		  <ul class="pagination justify-content-center">
