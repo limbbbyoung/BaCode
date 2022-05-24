@@ -32,7 +32,7 @@
 		<input type="submit" value="수정하기">
 	</c:if>
 	</form>
-	<form action="/BaCode/buyInsert" method="post">
+	<form action="/BaCode/buyInsert.buy" method="post">
 	<input type="hidden" value="${board.postNum }" name="postNum">
 	<input type="hidden" value="${board.title }" name="title"> 
 	<input type="hidden" value="${s_id }" name="s_id">
@@ -47,7 +47,7 @@
 	<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
 	</p>
 	<c:if test="${sessionScope.s_id ne pick.uId }">
-	<form action="/BaCode/pick" method="post">
+	<form action="/BaCode/pickInsert.pick" method="post">
 		<input type="submit" value="찜하기">
 		<input type="hidden" value="${board.postNum}" name="postNum">
 		<input type="hidden" value="${s_id }" name="pickId">
@@ -55,7 +55,7 @@
 	</form>
 	</c:if>
 	<c:if test="${sessionScope.s_id eq pick.uId }">
-	<form action="/BaCode/pickCancel" method="post">
+	<form action="/BaCode/pickDelete.pick" method="post">
 		<input type="submit" value="찜하기 취소">
 		<input type="hidden" value="${pick.pkNum}" name="pkNum">
 		<input type="hidden" value="${pick.pkTitle}" name="pickTitle">

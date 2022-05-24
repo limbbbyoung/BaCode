@@ -66,11 +66,11 @@
 	
 	<hr/>
 	<!-- <a href="http://localhost:8181/BaCode/boardList"><buttion>목록으로</buttion></a> -->
-	<form action="/BaCode/getPickList" method="get">
+	<form action="/BaCode/getPickList.pick" method="get">
 		<input type="hidden" name="uId" value="${user.uId }"><br/>
 		<button class="btn" id="btn-filed">찜목록으로 </button>
 	</form>
-	<form action="/BaCode/getBuyList" method="get">
+	<form action="/BaCode/getBuyList.buy" method="get">
 		<input type="hidden" name="uId" value="${user.uId }"><br/>
 		<button class="btn" id="btn-filed">구매목록으로 </button>
 	</form>

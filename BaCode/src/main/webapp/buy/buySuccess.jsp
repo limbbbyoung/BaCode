@@ -12,7 +12,7 @@
 	${s_id }
 	${buy }
 	<c:if test="${sessionScope.s_id eq buy.uId }">
-	<form action="/BaCode/reviewInsertForm" method="get">
+	<form action="/BaCode/reviewInsertForm.review" method="get">
 		<input type="submit" value="리뷰쓰러가기">
 		<input type="hidden" value="${buy.postNum }" name="postNum">
 		<input type="hidden" value="${s_id }" name="s_id">
@@ -20,10 +20,10 @@
 	</c:if>
 	<a href="/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
 	<c:if test="${sessionScope.s_id eq buy.uId }">
-	<form action="/BaCode/getBuyList" method="get">
-		<input type="submit" value="구매목록 보러가기">
+	<form action="/BaCode/getBuyList.buy" method="get">
 		<input type="hidden" value="${buy.postNum }" name="postNum">
 		<input type="hidden" value="${s_id }" name="s_id">
+		<input type="submit" value="구매목록 보러가기">
 	</form>
 	</c:if>
 </body>

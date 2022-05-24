@@ -35,7 +35,7 @@
          <c:forEach var="buy" items="${buyList }">
 	          <tr>
 	             <td>${buy.buyNum}</td>
-	             <td><a href="http://localhost:52525/BaCode/getBoardDetail?postnum=${buy.postNum}">${buy.buyTitle}</a></td>
+	             <td><a href="http://localhost:52525/BaCode/getBoardDetail.board?postnum=${buy.postNum}">${buy.buyTitle}</a></td>
 	             <td>${buy.buyBdate}</td>
 	          </tr>
         </c:forEach>
@@ -48,17 +48,17 @@
 		  <!-- 이전 10개 페이지 조회버튼을 출력합니다.
           현재 조회중인 페이지가 1~10 페이지가 아닐때만, 첫페이지 -1을 목표주소로 해서 prev 버튼을 만들면 됩니다. -->
           <c:if test="${buttons.startPage ne 1}">
-		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBuyList?pageNum=${buttons.startPage-1 }">Previous</a></li>
+		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBuyList.buy?pageNum=${buttons.startPage-1 }">Previous</a></li>
 		  </c:if>
 		    <c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }"> 
-				    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBuyList?pageNum=${pageNum}">${pageNum }</a></li>
+				    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBuyList.buy?pageNum=${pageNum}">${pageNum }</a></li>
 		    </c:forEach> 
           <c:if test="${buttons.endPage ne buttons.totalPages}">
-		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBuyList?pageNum=${buttons.endPage+1 }">Next</a></li>
+		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBuyList.buy?pageNum=${buttons.endPage+1 }">Next</a></li>
 		  </c:if>
 		  </ul>
 	</nav>
-    <a href="http://localhost:52525/BaCode/mainSearch" ><button class="btn" id="btn-filed">홈으로</button></a>
+    <a href="http://localhost:52525/BaCode/mainSearch.do" ><button class="btn" id="btn-filed">홈으로</button></a>
     <c:if test="${managerId ne null}">
 	<a class="btn" href="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" role="button" aria-disabled="false" id="btn-filed">관리자 홈으로</a>
 	</c:if>
