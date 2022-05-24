@@ -88,13 +88,17 @@ public class BoardController extends HttpServlet {
 			ui = "getBoardList.board";
 		} else if(uri.equals("/BaCode/searchWhat.board")) {
 			sv = new searchWhatService();
-			ui = (String)request.getAttribute("UI");
-			System.out.println(ui);
 			sv.execute(request, response);
+			ui = (String)request.getAttribute("UI");
+			System.out.println("가져온 주소 : " + ui);
+		} else if(uri.equals("/BaCode/getBoardCategoList.board")) {
+			sv = new GetBoardCategoList();
+			sv.execute(request, response);
+			ui = (String)request.getAttribute("UI");
+			System.out.println("가져온 주소 : " + ui);
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
-		System.out.println("dp : " + dp);
 		dp.forward(request, response);
 	}
 }
