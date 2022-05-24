@@ -44,7 +44,7 @@
 			<input type="submit" id="del" onclick="test()" value="삭제하기">
 		</form>
 	</c:if>
-	<a href="http://localhost:52525/BaCode/getBoardList,board"><button>판매 목록 보러가기</button></a>
+	<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
 	<c:choose>
 	<c:when test="${searchWhat eq '마우스' }">
 	 	<a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>
@@ -56,7 +56,7 @@
 		<a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>
 	</c:when>
 	<c:otherwise>
-		<a href="http://localhost:52525/BaCode/getBoardList,board"><button>판매 목록 보러가기</button></a>
+		<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
 	</c:otherwise>
 	</c:choose>
 	</p>
