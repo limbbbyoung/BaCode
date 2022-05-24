@@ -78,7 +78,7 @@ public class UserController extends HttpServlet {
 		} else if(uri.equals("/BaCode/answerRight.do")) {
 			sv = new AnswerRightService();
 			sv.execute(request, response);
-			ui = "/user/userInsertForm.jsp";
+			ui = (String)request.getAttribute("UI");
 		} else if(uri.equals("/BaCode/userLogout.do")) {
 			sv = new UserLogoutService();
 			sv.execute(request, response);
@@ -111,10 +111,13 @@ public class UserController extends HttpServlet {
 			sv = new MainSearchService();
 			sv.execute(request, response);
 			ui = "/user/mainSearch.jsp";
+		} else if(uri.equals("/BaCode/mainSearchManagerVer.do")) {
+			sv = new MainSearchService();
+			sv.execute(request, response);
+			ui = "/user/mainSearchManagerVer.jsp";
 		}
-
-		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
+		System.out.println("받아온 주소 값 : " + ui);
 		dp.forward(request, response);
 	}
 

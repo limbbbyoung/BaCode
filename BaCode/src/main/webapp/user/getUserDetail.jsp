@@ -50,7 +50,7 @@
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
 			<button type="submit" class="btn btn-success">회원정보 수정하기</button> 
 		</form>
-		<form action="http://localhost:52525/BaCode/userDeleteCheck" method="post">
+		<form action="http://localhost:52525/BaCode/userDeleteCheck.do" method="post">
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
 			<button type="submit" class="btn btn-success">회원탈퇴</button>
 		</form>
@@ -73,12 +73,12 @@
 		<input type="hidden" name="uId" value="${user.uId }"><br/>
 		<button class="btn" id="btn-filed">구매목록으로 </button>
 	</form>
-	<form action="http://localhost:52525/BaCode/user/mainSearch.jsp" method="post">
+	<form action="http://localhost:52525/BaCode/mainSearch.do" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
 	<input type="submit" value="홈으로" />
 	</form>
 	<c:if test="${managerId ne null}">
-	<form action="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" method="post">
+	<form action="http://localhost:52525/BaCode/mainSearchManagerVer.do" method="post">
 	<input type="submit" value="관리자 홈으로" />
 	</form>
 	</c:if>

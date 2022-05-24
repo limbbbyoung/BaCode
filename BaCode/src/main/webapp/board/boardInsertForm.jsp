@@ -45,9 +45,9 @@
 			     <p>글내용 : </p> <textarea cols="50" rows="12" name="content"></textarea><br/><br/>
 			     <button type="submit" id="boardin" onclick="test()" class="btn btn-success">상품 등록하기</button>
 			     </form><br/>
-			     <a href="http://localhost:52525/BaCode/user/mainSearch.jsp"><button class="btn btn-success">돌아가기</button></a>
+			     <a href="http://localhost:52525/BaCode/mainSearch.do"><button class="btn btn-success">돌아가기</button></a>
 			     <c:if test="${managerId ne null}">
-					<a class="btn" href="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
+					<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
 				 </c:if>
 			     <!-- <a href="http://localhost:8181/BaCode/" ><button>내 상품 목록 보러가기</button></a> -->
 		    </div>

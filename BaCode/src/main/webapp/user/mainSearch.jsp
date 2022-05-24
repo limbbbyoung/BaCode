@@ -7,7 +7,7 @@
 Object objManagerId = session.getAttribute("managerId");
 String managerId = (String)objManagerId;
 System.out.println("매니저 아이디 : " + managerId);
-response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp"); %>
+response.sendRedirect("http://localhost:52525/BaCode/mainSearchManagerVer.do"); %>
 </c:when>
 <c:when test="${loginIdFail eq 'id'}">
 <% response.sendRedirect("http://localhost:52525/BaCode/user/loginIdPwFail.jsp");%>
@@ -132,7 +132,7 @@ response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.j
 <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
 		  <div class="container-fluid">
-		    <a class="navbar-brand" href="/BaCode/user/mainSearch.jsp">BaCode</a>
+		    <a class="navbar-brand" href="/BaCode/mainSearch.do">BaCode</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
