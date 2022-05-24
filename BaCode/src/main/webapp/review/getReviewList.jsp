@@ -42,7 +42,7 @@
          <c:forEach var="review" items="${reviewList }">
 	          <tr>
 	             <td>${review.rvNum}</td>
-	             <td><a href="http://localhost:52525/BaCode/getReviewDetail?rvNum=${review.rvNum}">${review.rvTitle}</a></td>
+	             <td><a href="http://localhost:52525/BaCode/getReviewDetail.review?rvNum=${review.rvNum}">${review.rvTitle}</a></td>
 	             <td>${review.uId}</td>
 	             <td>${review.rvBdate}</td>
 	             <td>${review.rvUdate}</td>
@@ -57,13 +57,13 @@
 		  <!-- 이전 10개 페이지 조회버튼을 출력합니다.
           현재 조회중인 페이지가 1~10 페이지가 아닐때만, 첫페이지 -1을 목표주소로 해서 prev 버튼을 만들면 됩니다. -->
           <c:if test="${buttons.startPage ne 1}">
-		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getReviewList?pageNum=${buttons.startPage-1 }">Previous</a></li>
+		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getReviewList.review?pageNum=${buttons.startPage-1 }">Previous</a></li>
 		  </c:if>
 		    <c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }"> 
-				    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getReviewList?pageNum=${pageNum}">${pageNum }</a></li>
+				    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getReviewList.review?pageNum=${pageNum}">${pageNum }</a></li>
 		    </c:forEach> 
           <c:if test="${buttons.endPage ne buttons.totalPages}">
-		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getReviewList?pageNum=${buttons.endPage+1 }">Next</a></li>
+		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getReviewList.review?pageNum=${buttons.endPage+1 }">Next</a></li>
 		  </c:if>
 		  </ul>
 	</nav>

@@ -163,7 +163,7 @@ response.sendRedirect("http://localhost:52525/BaCode/user/mainSearchManagerVer.j
                 <div class="search-sec-btn-bottom"> <!-- 아래 두개 버튼 div로 묶었습니다. -->
 		            <a href="/BaCode/getBoardList.board"><button class="btn" id="btn-filed">등록된상품보러가기</button></a><br/><br/> <!-- 1.id 선택자 추가, 2.스타일 프로퍼티 css로 옮겼습니다. -->
 			        <a href="/BaCode/boardInsertForm.board"><button class="btn" id="btn-filed">상품등록하기</button></a> <!-- 1.id 선택자 추가, 2.스타일 프로퍼티 css로 옮겼습니다. -->
-			        <a href="/BaCode/getReviewList"><button class="btn" id="btn-filed">리뷰보러가기</button></a>
+			        <a href="/BaCode/getReviewList.review"><button class="btn" id="btn-filed">리뷰보러가기</button></a>
                 </div>
 		</div>
 	</div>

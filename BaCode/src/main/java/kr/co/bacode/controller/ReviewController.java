@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.bacode.reviewservice.GetReviewDetailService;
 import kr.co.bacode.reviewservice.GetReviewListService;
 import kr.co.bacode.reviewservice.IReviewService;
+import kr.co.bacode.reviewservice.ReviewDeleteService;
 import kr.co.bacode.reviewservice.ReviewInsertFormService;
 import kr.co.bacode.reviewservice.ReviewInsertService;
 import kr.co.bacode.reviewservice.ReviewUpdateFormService;
@@ -59,7 +60,7 @@ public class ReviewController extends HttpServlet {
 		} else if (uri.equals("/BaCode/getReviewDetail.review")) {
 			sv = new GetReviewDetailService();
 			sv.execute(request, response);
-			ui = "/review/getReviewDetail.jsp?rvNum=" + request.getParameter("rvNum");
+			ui = "/review/reviewDetail.jsp?rvNum=" + request.getParameter("rvNum");
 		} else if(uri.equals("/BaCode/reviewInsertForm.review")) {
 			sv = new ReviewInsertFormService();
 			sv.execute(request, response);
@@ -76,9 +77,12 @@ public class ReviewController extends HttpServlet {
 			sv = new ReviewUpdateService();
 			sv.execute(request, response);
 			ui = "getReviewDetail.review?rvNum=" + request.getParameter("rvNum");
-		
+		} else if(uri.equals("/BaCode/reviewDelete.review")) {
+			sv = new ReviewDeleteService();
+			sv.execute(request, response);
+			ui = "getReviewList.review";
+		}
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
 		dp.forward(request, response);
-	}
 	}
 }
