@@ -13,13 +13,14 @@
 </head>
 <body>
 ${user} 
-	<form id="de" action="/BaCode/userDelete" method="post">
+	<form id="de" action="/BaCode/userDelete.do" method="post">
 		<input type="hidden" name="uId" value="${user.uId }">
 	    <input type="hidden" id="password1" value="${user.uPw }" ><br/>
 	    비밀번호확인 : <input type="password" id="password2" >
 	    <button type="submit" id="delete" onclick="test()" class="btn" style="border-radius:20px; background-color : #6667AB; color: white;">비밀번호 확인</button>
   	</form>
-  <a href="/BaCode/getUserDetail"><button class="btn" id="return" style="border-radius:20px; background-color : #6667AB; color: white;">돌아가기</button></a>
+
+  <a href="/BaCode/getUserDetail.do"><button class="btn" id="return" style="border-radius:20px; background-color : #6667AB; color: white;">돌아가기</button></a>
  
 		<script type="text/javascript">
 		$( "#delete" ).click(function( event ) {

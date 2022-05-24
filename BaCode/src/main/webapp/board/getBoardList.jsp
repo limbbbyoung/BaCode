@@ -11,7 +11,7 @@
 <head>
 <style>
 	a {
-	     color : black;
+	     color : #8789C6;
 	     text-decoration-line : none;
 	  }
 </style>
@@ -20,8 +20,8 @@
 </head>
 <body>
 	<!-- ${boardList } -->
-    <h1>/boardList 임시 페이지</h1>
-    <table class="table table-hover" style="background-color : #8789C6;">
+    <h1 style="color: #3E408F;">상품 목록</h1>
+    <table class="table table-hover" style="color : #8789C6;">
        <thead>
            <tr>
               <th>글번호</th>
@@ -47,7 +47,6 @@
         </c:forEach>
        </tbody>
     </table>
-    ${buttons }
       <!-- foreach문의 start, end속성을 이용해 숫자를 알맞게 깔아주세요. -->
     <nav aria-label="Page navigation example">
 		  <ul class="pagination justify-content-center">
@@ -64,10 +63,12 @@
 		  </c:if>
 		  </ul>
 	</nav>
-    <c:if test="${sessionScope.s_id ne null }"><a href="/BaCode/boardInsertForm.board"><button class="btn btn-success">글 쓰기</button></a></c:if>
-    <a href="http://localhost:52525/BaCode/mainSearch" ><button>홈으로</button></a>
+    <c:if test="${sessionScope.s_id ne null }"><a href="/BaCode/boardInsertForm.board"><button class="btn" style="background-color : #8789C6; color: white;">글 쓰기</button></a></c:if>
+    
+    <a class="btn" href="http://localhost:52525/BaCode/mainSearch.do" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">홈으로</a>
+    
     <c:if test="${managerId ne null}">
-	<a class="btn" href="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
+	<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
 	</c:if>
 </body>
 </html>

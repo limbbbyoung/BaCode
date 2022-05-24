@@ -45,20 +45,6 @@
 		</form>
 	</c:if>
 	<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
-	<c:choose>
-	<c:when test="${searchWhat eq '마우스' }">
-	 	<a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>
-	</c:when>
-	<c:when test="${searchWhat eq '키보드' }">
-		<a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>
-	</c:when>
-	<c:when test="${searchWhat eq '노트북' }">
-		<a href="http://localhost:52525/BaCode/getBoardCategoList.board"><button>카테고리별 판매 목록 보러가기</button></a>
-	</c:when>
-	<c:otherwise>
-		<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
-	</c:otherwise>
-	</c:choose>
 	</p>
 	<c:if test="${sessionScope.s_id ne pick.uId }">
 	<form action="/BaCode/pick" method="post">
@@ -78,7 +64,7 @@
 	</c:if>
 
 	<c:if test="${sessionScope.s_id eq buy.uId }">
-	<form action="/BaCode/reviewInsertForm" method="get">
+	<form action="/BaCode/reviewInsertForm.review" method="get">
 		<input type="submit" value="리뷰쓰러가기">
 		<input type="hidden" value="${buy.postNum }" name="postNum">
 		<input type="hidden" value="${s_id }" name="s_id">
