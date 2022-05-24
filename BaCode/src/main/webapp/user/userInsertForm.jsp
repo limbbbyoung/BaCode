@@ -8,6 +8,16 @@
 <style>
    input { margin : 10px;}
    body { padding : 20px;}
+   
+   #frm {
+    	display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+   }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>

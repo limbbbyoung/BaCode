@@ -6,6 +6,7 @@
 <html>
 <head>
 <style>
+	
 	#header { height : 150px; }
 	img{width : 150px; height : 150px;}
 	#btn-filed {
@@ -33,9 +34,9 @@
 <div id="container">
 	<div class="row">
 		<div class="col-md-2 offset-md-2 first">
-		
-		<h1>${user.uId}님의 정보</h1><br/>
-		<h2>사진</h2>
+			<br/>
+			<h2>${user.uId}님의 정보</h2><br/>
+			<img src="${pageContext.request.contextPath}/Images/my.jpg" id="my" class="img-responsive" alt="">
 		</div>
 		<div class="col-md-4 offset-md-1 center">
 		이름 : ${user.uName } <br/>
@@ -48,11 +49,11 @@
 		이메일 : ${user.email}<br/>
 		<form action="/BaCode/userUpdateForm.do" method="post">
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
-			<button type="submit" class="btn btn-success">회원정보 수정하기</button> 
+			<button type="submit" id="btn-filed" class="btn">회원정보 수정하기</button> 
 		</form>
 		<form action="http://localhost:52525/BaCode/userDeleteCheck" method="post">
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
-			<button type="submit" class="btn btn-success">회원탈퇴</button>
+			<button type="submit" id="btn-filed" class="btn">회원탈퇴</button>
 		</form>
 		</div>
 		<div class="col-md-3">
@@ -75,7 +76,7 @@
 	</form>
 	<form action="http://localhost:52525/BaCode/user/mainSearch.jsp" method="post">
 	<input type="hidden" name="uId" value="${user.uId }"><br/>
-	<input type="submit" value="홈으로" />
+	<input type="submit" id="btn-filed" class="btn" value="홈으로" />
 	</form>
 	<c:if test="${managerId ne null}">
 	<form action="http://localhost:52525/BaCode/user/mainSearchManagerVer.jsp" method="post">
