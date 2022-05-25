@@ -9,72 +9,99 @@
  p {
  text-align : center;
  }
+    #btn-filed {
+        display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+    }
+    #del {
+        display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+    }
 </style>
 <head>
 <meta charset="UTF-8">
 <title>상품 상세 페이지</title>
 </head>
 <body>
-	${board }</br>
-	세션아이디 : ${s_id }</br>
-	픽2 : ${pick } <br/>
-	구매 : ${buy }
-	<p>
-	<form action="/BaCode/boardUpdateForm.board" method="post">
-	<input type="hidden" value="${board.postNum }" name="postnum">
-	카테고리 : <input type="text" value="${board.catego }">
-	글 제목<input type="text" style="width:300px;height:25px;" value="${board.title }"><br/>
-	작성자 : <input type="text" value="${board.uId }"><br/> 
-	작성날짜 : <input type="text" value="${board.bdate }">조회수 : ${board.hit }<br/>
-	<textarea cols="50" rows="20">${board.content }</textarea><br/>
-	수정날짜 : <input type="text" value="${board.mdate }"><br/>
-	<c:if test="${sessionScope.s_id eq board.uId}">
-		<input type="submit" value="수정하기">
-	</c:if>
-	</form>
-	<form action="/BaCode/buyInsert.buy" method="post">
-	<input type="hidden" value="${board.postNum }" name="postNum">
-	<input type="hidden" value="${board.title }" name="title"> 
-	<input type="hidden" value="${s_id }" name="s_id">
-	<input type="submit" value="구매하기">
-	</form>
-	<c:if test="${sessionScope.s_id eq board.uId}">
-		<form id="deleteSub" action="/BaCode/boardDelete.board" method="post">
-			<input type="hidden" value="${board.postNum }" name="postNum">	
-			<input type="submit" id="del" onclick="test()" value="삭제하기">
-		</form>
-	</c:if>
-	<a href="http://localhost:52525/BaCode/getBoardList.board"><button>판매 목록 보러가기</button></a>
-	</p>
-	<c:if test="${sessionScope.s_id ne pick.uId }">
-	<form action="/BaCode/pickInsert.pick" method="post">
-		<input type="submit" value="찜하기">
-		<input type="hidden" value="${board.postNum}" name="postNum">
-		<input type="hidden" value="${s_id }" name="pickId">
-		<input type="hidden" value="${board.title }" name="title">
-	</form>
-	</c:if>
-	<c:if test="${sessionScope.s_id eq pick.uId }">
-	<form action="/BaCode/pickDelete.pick" method="post">
-		<input type="submit" value="찜하기 취소">
-		<input type="hidden" value="${pick.pkNum}" name="pkNum">
-		<input type="hidden" value="${pick.pkTitle}" name="pickTitle">
-		<input type="hidden" value="${board.postNum }" name="postNum">
-	</form>
-	</c:if>
-
-	<c:if test="${sessionScope.s_id eq buy.uId }">
-	<form action="/BaCode/reviewInsertForm.review" method="get">
-		<input type="submit" value="리뷰쓰러가기">
-		<input type="hidden" value="${buy.postNum }" name="postNum">
-		<input type="hidden" value="${s_id }" name="s_id">
-	</form>
-	</c:if>
-	<form action="/BaCode/SOSInsertForm.SOS" method="post">
-	<input type="hidden" value=${board.postNum } name="postNum">
-	<input type="hidden" value=${s_id } name="s_id">
-	<button type="submit" class="btn btn-success">신고하기</button>
-	</form>
+	<div class="container">
+		  <div class="row">
+	        <div class="col">
+		    </div>
+		    <div class="col">
+		   		<p>
+		   		<!-- 글제목 --><b style="font-size: 25px;">${board.title }</b>
+				<form action="/BaCode/boardUpdateForm.board" method="post">
+				<input type="hidden" value="${board.postNum }" name="postnum">
+				Category : ${board.catego}<br/>
+				작성자 : ${board.uId }<br/>
+				작성날짜 : ${board.bdate }
+				<textarea  class="form-control" disabled>${board.content }</textarea><br/>
+				수정날짜 : <input type="text" class="form-control" value="${board.mdate }">
+				조회수 : ${board.hit } <br/>
+				<c:if test="${sessionScope.s_id eq board.uId}">
+					<button type="submit" class="btn" id="btn-filed">수정하기</button>
+				</c:if>
+				</form>
+				<form action="/BaCode/buyInsert.buy" method="post">
+				<input type="hidden" value="${board.postNum }" name="postNum">
+				<input type="hidden" value="${board.title }" name="title"> 
+				<input type="hidden" value="${s_id }" name="s_id">
+				<button type="submit" class="btn" id="btn-filed">구매하기</button>
+				</form>
+				<c:if test="${sessionScope.s_id eq board.uId}">
+					<form id="deleteSub" action="/BaCode/boardDelete.board" method="post">
+						<input type="hidden" value="${board.postNum }" name="postNum">	
+						<button type="submit" class="btn" id="del" onclick="test()">삭제하기</button>
+					</form>
+				</c:if>
+				<br/>
+				<a href="http://localhost:52525/BaCode/getBoardList.board"><button type="button" class="btn" id="btn-filed">판매 목록 보러가기</button></a>
+				</p>
+				<c:if test="${sessionScope.s_id ne pick.uId }">
+				<form action="/BaCode/pickInsert.pick" method="post">
+					<button type="submit" class="btn" id="btn-filed">찜하기</button>
+					<input type="hidden" value="${board.postNum}" name="postNum">
+					<input type="hidden" value="${s_id }" name="pickId">
+					<input type="hidden" value="${board.title }" name="title">
+				</form>
+				</c:if>
+				<c:if test="${sessionScope.s_id eq pick.uId }">
+				<form action="/BaCode/pickDelete.pick" method="post">
+					<button type="submit" class="btn" id="btn-filed">찜하기 취소</button>
+					<input type="hidden" value="${pick.pkNum}" name="pkNum">
+					<input type="hidden" value="${pick.pkTitle}" name="pickTitle">
+					<input type="hidden" value="${board.postNum }" name="postNum">
+				</form>
+				</c:if>
+				<br/>
+				<c:if test="${sessionScope.s_id eq buy.uId }">
+				<form action="/BaCode/reviewInsertForm.review" method="get">
+					<button type="submit" class="btn" id="btn-filed">리뷰쓰기</button>
+					<input type="hidden" value="${buy.postNum }" name="postNum">
+					<input type="hidden" value="${s_id }" name="s_id">
+				</form>
+				</c:if>
+				<br/>
+				<form action="/BaCode/SOSInsertForm.SOS" method="post">
+				<input type="hidden" value=${board.postNum } name="postNum">
+				<input type="hidden" value=${s_id } name="s_id">
+				<button type="submit" class="btn" id="btn-filed">신고하기</button>
+				</form>
+		    </div>
+		    <div class="col">
+		    </div>
+		  </div>
+		</div>
 	
 	<script type="text/javascript">
 		$( "#del" ).click(function( event ) {
