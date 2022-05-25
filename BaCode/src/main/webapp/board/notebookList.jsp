@@ -11,17 +11,39 @@
 <head>
 <style>
 	a {
-	     color : black;
+	     color : #8789C6;
 	     text-decoration-line : none;
 	  }
+    .my.pagination > .active > a, 
+	.my.pagination > .active > span, 
+	.my.pagination > .active > a:hover, 
+	.my.pagination > .active > span:hover, 
+	.my.pagination > .active > a:focus, 
+	.my.pagination > .active > span:focus {
+	  background: #DDDDF4;
+	  border-color: #DDDDF4;
+	}
+	    #btn-filed {
+        display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+    }
 </style>
 <meta charset="UTF-8">
 <title>카테고리 게시판</title>
 </head>
 <body>
-	<!-- ${boardList } -->
-    <h1>노트북 관련 상품 페이지</h1>
-    <table class="table table-primary table-hover">
+	<div class="container">
+    <h1 style="color: #3E408F;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
+	  <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
+	</svg>
+    노트북 상품 목록</h1>
+    <table class="table table-hover" style="color : #8789C6;">
        <thead>
            <tr>
               <th>글번호</th>
@@ -49,27 +71,29 @@
         </c:forEach>
        </tbody>
     </table>
-    ${buttons }
       <!-- foreach문의 start, end속성을 이용해 숫자를 알맞게 깔아주세요. -->
     <nav aria-label="Page navigation example">
-		  <ul class="pagination justify-content-center">
+		  <ul class="pagination my justify-content-center">
 		  <!-- 이전 10개 페이지 조회버튼을 출력합니다.
           현재 조회중인 페이지가 1~10 페이지가 아닐때만, 첫페이지 -1을 목표주소로 해서 prev 버튼을 만들면 됩니다. -->
           <c:if test="${buttons.startPage ne 1}">
 		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBoardCategoList.board?pageNum=${buttons.startPage-1 }">Previous</a></li>
 		  </c:if>
     <c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }"> 
-		    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBoardCategoList.board?pageNum=${pageNum}">${pageNum }</a></li>
+		    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBoardCategoList.board?pageNum=${pageNum}" style="color: #8789C6;" >${pageNum }</a></li>
     </c:forEach> 
           <c:if test="${buttons.endPage ne buttons.totalPages}">
 		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBoardCategoList.board?pageNum=${buttons.endPage+1 }">Next</a></li>
 		  </c:if>
 		  </ul>
 	</nav>
-    <c:if test="${sessionScope.s_id ne null }"><a href="http://localhost:52525/BaCode/boardInsertForm.board"><button class="btn btn-success">글 쓰기</button></a></c:if>
-    <a href="http://localhost:52525/BaCode/mainSearch.do" ><button class="btn btn-success">홈으로</button></a>
+    <c:if test="${sessionScope.s_id ne null }"><a class="btn" href="/BaCode/boardInsertForm.board" role="button" aria-disabled="false" id="btn-filed">글쓰기</a></c:if>
+    
+    <a class="btn" href="http://localhost:52525/BaCode/mainSearch.do" role="button" aria-disabled="false" id="btn-filed">홈으로</a>
+    
     <c:if test="${managerId ne null}">
-	<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
+	<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" id="btn-filed">관리자 홈으로</a>
 	</c:if>
+	</div><!-- container 끝나는 지점 -->
 </body>
 </html>
