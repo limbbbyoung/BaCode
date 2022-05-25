@@ -52,12 +52,14 @@
 					<button type="submit" class="btn" id="btn-filed">수정하기</button>
 				</c:if>
 				</form>
+				<!--<c:if test="${board.postNum ne buy.postNum }">
 				<form action="/BaCode/buyInsert.buy" method="post">
 				<input type="hidden" value="${board.postNum }" name="postNum">
 				<input type="hidden" value="${board.title }" name="title"> 
 				<input type="hidden" value="${s_id }" name="s_id">
 				<button type="submit" class="btn" id="btn-filed">구매하기</button>
 				</form>
+				</c:if> -->
 				<c:if test="${sessionScope.s_id eq board.uId}">
 					<form id="deleteSub" action="/BaCode/boardDelete.board" method="post">
 						<input type="hidden" value="${board.postNum }" name="postNum">	
