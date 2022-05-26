@@ -34,6 +34,8 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 		if(formPw.equals(dbPw)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("s_id", formId);
+			user = dao.getUserDetail(formId);
+			request.setAttribute("user", user);
 			
 			// 운영자전용 페이지로 접속되는 로직
 			ManagerDAO mdao = ManagerDAO.getInstance();

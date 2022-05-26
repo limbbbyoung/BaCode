@@ -44,14 +44,14 @@
 		<hr>
 		주소 : ${user.addr } <br/>
 		<hr>
-		좋아요 지수 : ${user.heart } <br/>
+		좋아요 지수 : ${user.heart } <meter min="-10" max="10" low="-3" value="${user.heart }"></meter> <br/>
 		휴대폰 번호 : ${user.pNum }<br/>
 		이메일 : ${user.email}<br/>
 		<form action="/BaCode/userUpdateForm.do" method="post">
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
 			<button type="submit" id="btn-filed" class="btn">회원정보 수정하기</button> 
 		</form>
-		<form action="http://localhost:52525/BaCode/userDeleteCheck.do" method="post">
+		<form action="/BaCode/userDeleteCheck.do" method="post">
 			<input type="hidden" name="uId" value="${user.uId }"><br/>
 			<button type="submit" id="btn-filed" class="btn">회원탈퇴</button>
 		</form>

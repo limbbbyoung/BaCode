@@ -3,7 +3,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -23,7 +24,7 @@
 	  background: #DDDDF4;
 	  border-color: #DDDDF4;
 	}
-	    #btn-filed {
+	    #btn-filed, #heart {
         display: inline-block;
         padding: 13px 20px;
         background-color:#6667AB; 
@@ -32,6 +33,7 @@
         text-align: center;
         line-height: 100%;
     }
+    #he { display: inline-block;  }
     
 </style>
 <meta charset="UTF-8">
@@ -87,7 +89,7 @@
 		  </c:if>
 		  </ul>
 	</nav>
-    <c:if test="${sessionScope.s_id ne null }"><a class="btn" href="/BaCode/boardInsertForm.board" role="button" aria-disabled="false" id="btn-filed">글쓰기</a></c:if>
+    <c:if test="${sessionScope.s_id ne null }"><form id="he" action="/BaCode/boardInsertForm.board"><button class="btn" id="heart">글쓰기</button></form></c:if>
     
     <a class="btn" href="http://localhost:52525/BaCode/mainSearch.do" role="button" aria-disabled="false" id="btn-filed">홈으로</a>
     
@@ -95,5 +97,16 @@
 	<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" id="btn-filed">관리자 홈으로</a>
 	</c:if>
 	</div><!-- container 끝나는 지점 -->
+	<script type="text/javascript">
+		$( "#heart" ).click(function( event ) {
+			event.preventDefault();
+			if(${user.heart <= -10}) {
+				alert("좋아요 지수가 너무 낮습니다. 관리자에게 문의하세요");
+			} else {
+				$("#he").submit()
+			}
+		});
+	</script>
+
 </body>
 </html>

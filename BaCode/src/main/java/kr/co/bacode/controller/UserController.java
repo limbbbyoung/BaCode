@@ -18,6 +18,8 @@ import kr.co.bacode.service.DvCheckService;
 import kr.co.bacode.service.GetUserDetailService;
 import kr.co.bacode.service.IUserService;
 import kr.co.bacode.service.MainSearchService;
+import kr.co.bacode.service.UserDeleteCheckService;
+import kr.co.bacode.service.UserDeleteService;
 import kr.co.bacode.service.UserIdFormService;
 import kr.co.bacode.service.UserIdPwService;
 import kr.co.bacode.service.UserInsertService;
@@ -115,6 +117,14 @@ public class UserController extends HttpServlet {
 			sv = new MainSearchService();
 			sv.execute(request, response);
 			ui = "/user/mainSearchManagerVer.jsp";
+		} else if(uri.equals("/BaCode/userDeleteCheck.do")) {
+			sv = new UserDeleteCheckService();
+			sv.execute(request, response);
+			ui = "/user/userDeleteCheck.jsp";
+		} else if(uri.equals("/BaCode/userDelete.do")) {
+			sv = new UserDeleteService();
+			sv.execute(request, response);
+			ui = "userLogin.do";
 		}
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
 		System.out.println("받아온 주소 값 : " + ui);

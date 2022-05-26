@@ -11,8 +11,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-${user} 
+<body> 
 	<form id="de" action="/BaCode/userDelete.do" method="post">
 		<input type="hidden" name="uId" value="${user.uId }">
 	    <input type="hidden" id="password1" value="${user.uPw }" ><br/>

@@ -13,8 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${postNum}
-	${board }
 	<div class="container">
 		  <div class="row">
 		    <div class="col">
@@ -52,7 +50,7 @@
 				 <!-- onclick 속성값 얻기 -->
 				 <br/>
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
-			     작성자 : <input type="text" name="uId" value="${uId }"> <br/>
+			     작성자 : <input type="text" name="uId" value="${uId }" readonly> <br/>
 			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content" placeholder="리뷰를 작성해주세요."></textarea><br/>
 			     <button type="submit" id="review" class="btn btn-success">등록하기</button>
 			     </form>

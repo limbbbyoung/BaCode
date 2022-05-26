@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <c:choose>
 <c:when test="${reUrl ne null }">
 <% 
@@ -30,7 +31,7 @@ response.sendRedirect("http://localhost:52525/BaCode/mainSearchManagerVer.do"); 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
 	/* 공통 요소 (버튼) */
-    #btn-filed {
+    #btn-filed, #heart{
         display: inline-block;
         padding: 13px 20px;
         background-color:#6667AB; 
@@ -162,13 +163,12 @@ response.sendRedirect("http://localhost:52525/BaCode/mainSearchManagerVer.do"); 
 
                 <div class="search-sec-btn-bottom"> <!-- 아래 두개 버튼 div로 묶었습니다. -->
 		            <a href="/BaCode/getBoardList.board"><button class="btn" id="btn-filed">등록된상품보러가기</button></a><br/><br/> <!-- 1.id 선택자 추가, 2.스타일 프로퍼티 css로 옮겼습니다. -->
-			        <a href="/BaCode/boardInsertForm.board"><button class="btn" id="btn-filed">상품등록하기</button></a> <!-- 1.id 선택자 추가, 2.스타일 프로퍼티 css로 옮겼습니다. -->
-			        <a href="/BaCode/getReviewList.review"><button class="btn" id="btn-filed">리뷰보러가기</button></a>
+			        <form id="he" action="/BaCode/boardInsertForm.board"><button class="btn" id="heart">상품등록하기</button></form> <!-- 1.id 선택자 추가, 2.스타일 프로퍼티 css로 옮겼습니다. -->
+			        <a href="/BaCode/getReviewList.review"><button class="btn" onclick="test()" id="btn-filed">리뷰보러가기</button></a>
                 </div>
 		</div>
 	</div>
 	<div class="row empty"></div>
-</div>
 <div id="footer">
 	<p>주소 : 서울시 신촌역 7번출구 ict학원</p>
 	<!-- <hr/> 삭제하고 css에서 가상요소로 대체하였습니다. (레이아웃-퍼블리싱 이슈)-->
@@ -180,5 +180,17 @@ response.sendRedirect("http://localhost:52525/BaCode/mainSearchManagerVer.do"); 
 		<a href="help.jsp">이용약관</a>
 	</div>
 </div>
+
+	<script type="text/javascript">
+		$( "#heart" ).click(function( event ) {
+			event.preventDefault();
+			if(${user.heart <= -10}) {
+				alert("좋아요 지수가 너무 낮습니다. 관리자에게 문의하세요");
+			} else {
+				$("#he").submit()
+			}
+		});
+		</script>
+
 </body>
 </html> 

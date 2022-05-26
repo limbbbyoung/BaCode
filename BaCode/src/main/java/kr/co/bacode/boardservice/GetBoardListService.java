@@ -7,10 +7,13 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.bacode.domain.BoardButtonDTO;
 import kr.co.bacode.domain.BoardDAO;
 import kr.co.bacode.domain.BoardVO;
+import kr.co.bacode.domain.userDAO;
+import kr.co.bacode.domain.userVO;
 
 public class GetBoardListService implements IBoardService {
 	
@@ -35,6 +38,13 @@ public class GetBoardListService implements IBoardService {
 			    
 		List<BoardVO> boardList = dao.getBoardList(pageNum);
 		request.setAttribute("boardList", boardList);
+		
+		// getBoardList.jsp에 user.heart보내기위한 구문
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("s_id");
+		userDAO dao1 = userDAO.getInstance();
+		userVO user = dao1.getUserDetail(id); 
+		request.setAttribute("user", user);
 				
 		
 	}
