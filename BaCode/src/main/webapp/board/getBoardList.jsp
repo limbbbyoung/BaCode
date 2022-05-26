@@ -82,7 +82,7 @@
 		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList.board?pageNum=${buttons.startPage-1 }" style="color: #8789C6;">Previous</a></li>
 		  </c:if>
     <c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }"> 
-		    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList.board?pageNum=${pageNum}"  style="color: #8789C6; ">${pageNum }</a></li>
+		    <li class="page-item ${(buttons.currentPage eq pageNum) ? 'active' : ' '}" aria-current="page"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList.board?pageNum=${pageNum}"  style="color : #3E408F;">${pageNum }</a></li>
     </c:forEach> 
           <c:if test="${buttons.endPage ne buttons.totalPages}">
 		    <li class="page-item"><a class="page-link" href="http://localhost:52525/BaCode/getBoardList.board?pageNum=${buttons.endPage+1 }" style="color: #8789C6;">Next</a></li>

@@ -106,7 +106,6 @@
 				<input type="hidden" value="${s_id }" name="s_id">
 				<button type="submit" class="btn" id="btn-filed">구매하기</button>
 				</form>
-				
 				<c:if test="${sessionScope.s_id eq board.uId}">
 					<form id="deleteSub" action="/BaCode/boardDelete.board" method="post">
 						<input type="hidden" value="${board.postNum }" name="postNum">	
@@ -164,6 +163,6 @@
 				$("#deleteSub").submit()
 			}
 		});
-		</script>
+	</script>
 </body>
 </html>
