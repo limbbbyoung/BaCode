@@ -159,7 +159,7 @@ public class BuyDAO {
 		List<BuyVO> buyList = new ArrayList<>();
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM buyTbl";
+			String sql = "SELECT * FROM buyTbl WHRER";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();		
 			while(rs.next()) {
