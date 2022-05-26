@@ -10,14 +10,31 @@
 <script>
 </script>
 <style>
-   input { margin : 10px;}
-   body { padding : 20px;}
    a {
 	     color : black;
 	     text-decoration-line : none;
 	  }
    nav { width : 400px;}
    .Categori { width : 400px;}
+    #btn-filed {
+	        display: inline-block;
+	        padding: 13px 20px;
+	        background-color:#6667AB; 
+	        color: white;
+	        border-radius: 20px;
+	        text-align: center;
+	        line-height: 100%;
+	    }
+	 #boardin {
+	    display: inline-block;
+        padding: 13px 20px;
+        background-color : white; 
+        border : 1px solid #6667AB;
+        color: #6667AB;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+	 }
 </style>
 <meta charset="UTF-8">
 <title>BaCode 상품 등록</title>
@@ -28,7 +45,7 @@
 		    <div class="col">
 		    </div>
 		    <div class="col">
-		      <h1>상품 등록</h1>
+		      <h1 style="color: #3E408F;">상품 등록</h1>
 			     <hr/>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
 			     <form id="bo" action="/BaCode/boardInsert.board" method="post">
@@ -40,14 +57,14 @@
 						  <option value="키보드">키보드</option>
 					   </select>
 					   </div>
-			     글제목 : <input type="text" id="tit" name="title" placeholder="제목을 입력해주세요."><br/>
+			     글제목 : <input class="form-control" type="text" id="tit" name="title" placeholder="제목을 입력해주세요."><br/>
 			     작성자 : ${uId }<br/>
-			     <p>글내용 : </p> <textarea cols="50" rows="12" name="content"></textarea><br/><br/>
-			     <button type="submit" id="boardin" onclick="test()" class="btn btn-success">상품 등록하기</button>
+			     <p>글내용 : </p> <textarea class="form-control" cols="50" rows="12" name="content"></textarea><br/>
+			     <button type="submit" id="boardin" onclick="test()" class="btn" >상품 등록하기</button>
 			     </form><br/>
-			     <a href="http://localhost:52525/BaCode/mainSearch.do"><button class="btn btn-success">돌아가기</button></a>
+			     <a href="http://localhost:52525/BaCode/mainSearch.do"><button class="btn" id="btn-filed">홈으로</button></a>
 			     <c:if test="${managerId ne null}">
-					<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" style="background-color : #8789C6; color: white;">관리자 홈으로</a>
+					<a class="btn" href="http://localhost:52525/BaCode/mainSearchManagerVer.do" role="button" aria-disabled="false" id="btn-filed">관리자 홈으로</a>
 				 </c:if>
 			     <!-- <a href="http://localhost:8181/BaCode/" ><button>내 상품 목록 보러가기</button></a> -->
 		    </div>

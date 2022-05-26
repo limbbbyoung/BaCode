@@ -9,14 +9,19 @@
 <script>
 </script>
 <style>
-   input { margin : 10px;}
-   body { padding : 20px;}
-   a {
-	     color : black;
-	     text-decoration-line : none;
-	  }
-   nav { width : 400px;}
-   .Categori { width : 400px;}
+     #btn-filed {
+	        display: inline-block;
+	        padding: 13px 20px;
+	        background-color:#6667AB; 
+	        color: white;
+	        border-radius: 20px;
+	        text-align: center;
+	        line-height: 100%;
+	    }
+	 .container {
+	   	margin-top: 30px; 
+	 }
+
 </style>
 <meta charset="UTF-8">
 <title>신고글 등록</title>
@@ -27,18 +32,15 @@
 		    <div class="col">
 		    </div>
 		    <div class="col">
-		    ${postNum }
-		      <h1>신고글 작성</h1>
-			     <hr/>
-			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
-			     <form action="http://localhost:52525/BaCode/SOSInsert.SOS" method="post">
+		      <h1 style="color: #3E408F;">신고글 작성</h1>
+			    <form action="http://localhost:52525/BaCode/SOSInsert.SOS" method="post">
 			     <input type="hidden" value=${postNum } name="postNum">
-			     제목 : <input type="text" name="stTitle" placeholder="제목을 입력해주세요."><br/>
-			     작성자 : ${uId }<br/>
-			     <p>신고글 내용 : </p> <textarea cols="50" rows="12" name="stContent"></textarea><br/><br/>
-			     <button type="submit" class="btn btn-success">신고 등록</button>
+			     <input class="form-control" type="text" name="stTitle" placeholder="제목을 입력해주세요."><br/>
+			     작성자 : <b>${uId }</b><br/>
+			     <p>신고글 내용 : </p> <textarea class="form-control" cols="50" rows="12" name="stContent"></textarea><br/><br/>
+			     <button type="submit" class="btn" id="btn-filed">신고 등록</button>
 			     </form><br/>
-			     <a href="http://localhost:52525/BaCode/user/mainSearch.jsp"><button class="btn btn-success">돌아가기</button></a>
+			     <a href="http://localhost:52525/BaCode/user/mainSearch.jsp"><button class="btn" id="btn-filed">돌아가기</button></a>
 		    </div>
 		    <div class="col">
 		    </div>

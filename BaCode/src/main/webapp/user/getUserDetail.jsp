@@ -67,20 +67,20 @@
 	<hr/>
 	<!-- <a href="http://localhost:8181/BaCode/boardList"><buttion>목록으로</buttion></a> -->
 	<form action="/BaCode/getPickList.pick" method="get">
-		<input type="hidden" name="uId" value="${user.uId }"><br/>
+		<input type="hidden" name="uId" value="${user.uId }">
 		<button class="btn" id="btn-filed">찜목록으로 </button>
 	</form>
 	<form action="/BaCode/getBuyList.buy" method="get">
-		<input type="hidden" name="uId" value="${user.uId }"><br/>
+		<input type="hidden" name="uId" value="${user.uId }">
 		<button class="btn" id="btn-filed">구매목록으로 </button>
 	</form>
 	<form action="http://localhost:52525/BaCode/mainSearch.do" method="post">
-	<input type="hidden" name="uId" value="${user.uId }"><br/>
+	<input type="hidden" name="uId" value="${user.uId }">
 	<input type="submit" id="btn-filed" class="btn" value="홈으로" />
 	</form>
 	<c:if test="${managerId ne null}">
 	<form action="http://localhost:52525/BaCode/mainSearchManagerVer.do" method="post">
-	<input type="submit" value="관리자 홈으로" />
+	<input type="submit" id="btn-filed" class="btn" value="관리자 홈으로" />
 	</form>
 	</c:if>
 </body>
