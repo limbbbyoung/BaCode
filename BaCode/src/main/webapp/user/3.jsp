@@ -33,7 +33,7 @@
 		<div class="col-md-5 question">
 			<p>자바의 언어 개발자는?</p>
 			<form action="/BaCode/answerRight.do" method="post">
-			정답 : <input type="text" name="answer" placeholder="카멜케이스로 입력해주세요" style="width:300px;">
+			정답 : <input type="text" name="answer" placeholder="한글 입력" style="width:300px;">
 			<input type="submit" id="c" class="btn" value="제출" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"> 
 			</form>
 		</div>
