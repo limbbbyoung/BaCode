@@ -31,9 +31,9 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-5 question">
-			<p>한국에서 가장 많이 쓰는 프로그래밍 언어는?(영문 입력)</p>
+			<p>한국에서 가장 많이 쓰는 프로그래밍 언어는?</p>
 			<form action="/BaCode/answerRight.do" method="post">
-			정답 : <input type="text" name="answer" placeholder="카멜케이스로 입력해주세요" style="width:300px;">
+			정답 : <input type="text" name="answer" placeholder="영문 입력" style="width:300px;">
 			<input type="submit" id="c" class="btn" value="제출" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"> 
 			</form>
 		</div>
