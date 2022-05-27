@@ -21,7 +21,7 @@ public class GetReviewDetailService implements IReviewService {
 		ReviewDAO rdao = ReviewDAO.getInstance();
 		ReviewVO review = rdao.getReviewDetail(reviewNum);
 		BoardDAO dao = BoardDAO.getInstance();
-		BoardVO board = dao.getBoardDetail(reviewNum);
+		BoardVO board = dao.getBoardDetail(review.getPostNum());
 		request.setAttribute("board" , board);
 		System.out.println(board);
 		request.setAttribute("review" , review);
