@@ -47,16 +47,17 @@
 	작성자 : <input type="text" value="${review.uId }" readonly><br/> 
 	작성날짜 : <input type="text" value="${review.rvBdate }" readonly><br/>
 	<textarea cols="50" rows="20" readonly>${review.rvContent }</textarea><br/>
-	수정날짜 : <input type="text" value="${review.rvUdate }" readonly><br/>
+	수정날짜 : <input type="text" value="${review.rvUdate }" readonly>
+	<hr/>
 	<c:if test="${sessionScope.s_id eq review.uId }">
 	<button type="submit" class="btn" id="btn-filed">수정하기</button>
 	</c:if>
-	</form>
+	</form><br/>
 	<c:if test="${sessionScope.s_id eq review.uId }">
 	<form action="/BaCode/reviewDelete.review" method="post">
 	<input type="hidden" value="${review.rvNum }" name="rvNum">
 	<button type="submit" class="btn" id="btn-filed">삭제하기</button>
-	</form>
+	</form><br/>
 	</c:if>
 	<a href="http://localhost:52525/BaCode/getBoardList.board"><button type="button" class="btn" id="btn-filed">판매목록으로</button></a>
 	<a href="http://localhost:52525/BaCode/getReviewList.review"><button type="button" class="btn" id="btn-filed">리뷰목록으로</button></a>

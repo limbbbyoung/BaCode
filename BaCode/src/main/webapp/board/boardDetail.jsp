@@ -100,7 +100,7 @@
 					<button type="submit" class="btn" id="btn-filed">수정하기</button>
 				</c:if>
 				</form>
-				<c:if test="${board.postNum eq buy.postNum}"> 
+				<c:if test="${(sessionScope.s_id ne board.uId) && (board.postNum ne buy.postNum)}"> 
 				<form class="form" action="/BaCode/buyInsert.buy" method="post">
 				<input type="hidden" value="${board.postNum }" name="postNum">
 				<input type="hidden" value="${board.title }" name="title"> 

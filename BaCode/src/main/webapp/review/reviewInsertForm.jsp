@@ -6,7 +6,27 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <style>
-
+ p {
+ text-align : center;
+ }
+    #btn-filed {
+        display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+    }
+    #del {
+        display: inline-block;
+        padding: 13px 20px;
+        background-color:#6667AB; 
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 100%;
+    }
 </style>
 <head>
 <meta charset="UTF-8">
@@ -18,7 +38,7 @@
 		    <div class="col">
 		    </div>
 		    <div class="col">
-		      <h1>Review</h1>
+		      <h1 style="color: #3E408F;">리뷰 쓰기</h1>
 			     <hr/>
 			     <!-- 드롭다운에서 선택된 항목을 기본값으로 가져오기 위한 기능 추가 -->
 			     <form action="http://localhost:52525/BaCode/reviewInsert.review" method="post">
@@ -48,12 +68,14 @@
 				 </label>
 				 </div>
 				 <!-- onclick 속성값 얻기 -->
-				 <br/>
+				 <hr/>
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
 			     작성자 : <input type="text" name="uId" value="${uId }" readonly> <br/>
-			     <p>글내용 : </p> <textarea cols="50" rows="15" name="content" placeholder="리뷰를 작성해주세요."></textarea><br/>
-			     <button type="submit" id="review" class="btn btn-success">등록하기</button>
-			     </form>
+			     글내용 : <textarea cols="50" rows="15" name="content" placeholder="리뷰를 작성해주세요."></textarea><br/>
+			     <button type="button" class="btn" id="btn-filed">등록하기</button>
+			     </form><br/>
+			     	<a href="http://localhost:52525/BaCode/getReviewList.review"><button type="button" class="btn" id="btn-filed">리뷰목록으로</button></a> 
+					<a href="http://localhost:52525/BaCode/mainSearch.do"><button type="button" class="btn" id="btn-filed">홈으로</button></a>
 		    </div>
 		    <div class="col">
 		    </div>

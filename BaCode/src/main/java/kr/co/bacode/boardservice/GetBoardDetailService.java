@@ -37,7 +37,7 @@ public class GetBoardDetailService implements IBoardService {
 		request.setAttribute("board" , board);
 		
 		BuyDAO bdao = BuyDAO.getInstance();
-		BuyVO buy = bdao.getBuyList(boardNum, pickUid);
+		BuyVO buy = bdao.getBuy(boardNum);
 		request.setAttribute("buy", buy);
 		System.out.println(buy);
 	}

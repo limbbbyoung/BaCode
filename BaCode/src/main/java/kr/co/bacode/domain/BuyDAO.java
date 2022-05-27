@@ -151,7 +151,9 @@ public class BuyDAO {
 			}
 		}
 		return buyCount;
-	} // 게시판의 전체 목록을 불러오는 메서드
+	} 
+	
+	/* 게시판의 전체 목록을 불러오는 메서드
 	public List<BuyVO> getAllBuyList() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -183,5 +185,37 @@ public class BuyDAO {
 			}
 		}
 		return buyList;
+	} */
+	// 구매하기 로직을 수행하기 위한 메서드
+	public BuyVO getBuy(int postNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		BuyVO buy = new BuyVO();
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM buyTbl WHERE postnum=?" ;
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, postNum);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				buy.setBuyNum(rs.getInt(1));
+				buy.setuId(rs.getString(2));
+				buy.setPostNum(rs.getInt(3));
+				buy.setBuyBdate(rs.getDate(4));
+				buy.setBuyTitle(rs.getString(5));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+			con.close();
+			pstmt.close();
+			rs.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return buy;
 	}
 }
