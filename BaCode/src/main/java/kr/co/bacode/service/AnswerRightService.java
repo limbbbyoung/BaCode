@@ -16,6 +16,14 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 			request.setAttribute("answer", answer);
 			UI = "/user/userInsertForm.jsp";
 			request.setAttribute("UI", UI);
+		} else if(answer.equalsIgnoreCase("java")) {
+			request.setAttribute("answer", answer);
+			UI = "/user/userInsertForm.jsp";
+			request.setAttribute("UI", UI);
+		} else if(answer.equals("제임스 고슬링")) {
+			request.setAttribute("answer", answer);
+			UI = "/user/userInsertForm.jsp";
+			request.setAttribute("UI", UI);
 		} else {
 			request.setAttribute("answer", answer);
 			UI = "/user/noDv.jsp";
