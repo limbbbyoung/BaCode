@@ -64,6 +64,7 @@ public class UserController extends HttpServlet {
 		String ui = null;
 		userDAO dao = userDAO.getInstance();
 		IUserService sv = null;
+		int ran = (int)(Math.random() * 3) + 1;
 		
 		if(uri.equals("/BaCode/userLogin.do")) {
 			sv = new UserLoginService();
@@ -76,7 +77,7 @@ public class UserController extends HttpServlet {
 		} else if(uri.equals("/BaCode/dvCheck.do")) {
 			sv = new DvCheckService();
 			sv.execute(request, response);
-			ui = "/user/dvCheck.jsp";
+			ui = "/user/" + ran + ".jsp";
 		} else if(uri.equals("/BaCode/answerRight.do")) {
 			sv = new AnswerRightService();
 			sv.execute(request, response);
