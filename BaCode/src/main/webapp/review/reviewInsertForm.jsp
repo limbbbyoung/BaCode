@@ -72,7 +72,7 @@
 			     글제목 : <input type="text" name="title" placeholder="제목을 입력해주세요."><br/>
 			     작성자 : <input type="text" name="uId" value="${uId }" readonly> <br/>
 			     글내용 : <textarea cols="50" rows="15" name="content" placeholder="리뷰를 작성해주세요."></textarea><br/>
-			     <button type="button" class="btn" id="btn-filed">등록하기</button>
+			     <button type="submit" class="btn" id="btn-filed">등록하기</button>
 			     </form><br/>
 			     	<a href="http://localhost:52525/BaCode/getReviewList.review"><button type="button" class="btn" id="btn-filed">리뷰목록으로</button></a> 
 					<a href="http://localhost:52525/BaCode/mainSearch.do"><button type="button" class="btn" id="btn-filed">홈으로</button></a>
